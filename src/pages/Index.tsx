@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { LayoutDashboard } from 'lucide-react';
+import { LayoutDashboard, FileText, MenuSquare, Library, PenSquare, Users, Settings } from 'lucide-react';
 
 const Index = () => {
   return (
@@ -9,7 +9,7 @@ const Index = () => {
       <div className="mb-8 text-center">
         <h1 className="mb-4 text-4xl font-bold text-gray-900">Project Management Admin Portal</h1>
         <p className="mb-8 max-w-2xl text-lg text-gray-600">
-          Manage your project portfolio, hero sections, and site content with our comprehensive admin dashboard.
+          Manage your project portfolio, pages, menus, and site content with our comprehensive admin dashboard.
         </p>
         
         <Link 
@@ -21,7 +21,7 @@ const Index = () => {
         </Link>
       </div>
       
-      <div className="grid w-full max-w-4xl gap-6 px-4 md:grid-cols-2">
+      <div className="grid w-full max-w-4xl gap-6 px-4 md:grid-cols-2 lg:grid-cols-3">
         <div className="rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
           <h2 className="mb-3 text-xl font-semibold text-gray-800">Hero Section Management</h2>
           <p className="mb-4 text-gray-600">
@@ -32,6 +32,32 @@ const Index = () => {
             className="mt-2 inline-flex items-center text-[hsl(var(--admin-primary))] hover:underline"
           >
             Manage Hero Section →
+          </Link>
+        </div>
+        
+        <div className="rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+          <h2 className="mb-3 text-xl font-semibold text-gray-800">Pages Management</h2>
+          <p className="mb-4 text-gray-600">
+            Create, edit and organize all your website pages with hierarchical structure and SEO settings.
+          </p>
+          <Link 
+            to="/admin/pages" 
+            className="mt-2 inline-flex items-center text-[hsl(var(--admin-primary))] hover:underline"
+          >
+            Manage Pages →
+          </Link>
+        </div>
+        
+        <div className="rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
+          <h2 className="mb-3 text-xl font-semibold text-gray-800">Menu Navigation</h2>
+          <p className="mb-4 text-gray-600">
+            Create and customize your website navigation with our drag-and-drop menu builder.
+          </p>
+          <Link 
+            to="/admin/menus" 
+            className="mt-2 inline-flex items-center text-[hsl(var(--admin-primary))] hover:underline"
+          >
+            Manage Menus →
           </Link>
         </div>
         
@@ -49,15 +75,15 @@ const Index = () => {
         </div>
         
         <div className="rounded-lg border bg-white p-6 shadow-sm transition-all hover:shadow-md">
-          <h2 className="mb-3 text-xl font-semibold text-gray-800">Comprehensive Categorization</h2>
+          <h2 className="mb-3 text-xl font-semibold text-gray-800">Media Library</h2>
           <p className="mb-4 text-gray-600">
-            Organize projects by industry, service type, and work environment for easier navigation.
+            Upload, organize and manage all your media files in one centralized location.
           </p>
           <Link 
-            to="/admin/projects/add" 
+            to="/admin/media" 
             className="mt-2 inline-flex items-center text-[hsl(var(--admin-primary))] hover:underline"
           >
-            Add New Project →
+            Manage Media →
           </Link>
         </div>
         

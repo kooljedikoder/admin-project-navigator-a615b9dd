@@ -7,7 +7,13 @@ import {
   SlidersHorizontal, 
   LayoutList, 
   Map,
-  LogOut
+  LogOut,
+  FileText,
+  MenuSquare,
+  Library,
+  PenSquare,
+  Users,
+  Settings
 } from 'lucide-react';
 import { 
   Sidebar, 
@@ -35,7 +41,13 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
   const menuItems = [
     { title: 'Dashboard', path: '/admin', icon: LayoutDashboard },
     { title: 'Hero Section', path: '/admin/hero', icon: SlidersHorizontal },
+    { title: 'Pages', path: '/admin/pages', icon: FileText },
+    { title: 'Menus', path: '/admin/menus', icon: MenuSquare },
     { title: 'Projects', path: '/admin/projects', icon: LayoutList },
+    { title: 'Media Library', path: '/admin/media', icon: Library },
+    { title: 'Blog', path: '/admin/blog', icon: PenSquare },
+    { title: 'Users', path: '/admin/users', icon: Users },
+    { title: 'Settings', path: '/admin/settings', icon: Settings },
     { title: 'Site Map', path: '/admin/sitemap', icon: Map },
   ];
 

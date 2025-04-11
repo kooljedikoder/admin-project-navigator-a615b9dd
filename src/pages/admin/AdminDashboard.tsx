@@ -3,7 +3,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { LayoutList, SlidersHorizontal, Map, PlusCircle } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { LayoutList, SlidersHorizontal, Map, PlusCircle, FileText, MenuSquare, Library, PenSquare, Users, Settings } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
   return (
@@ -29,6 +30,48 @@ const AdminDashboard: React.FC = () => {
 
         <Card>
           <CardHeader className="pb-2">
+            <CardTitle className="text-lg font-medium">Pages</CardTitle>
+            <CardDescription>Manage your website pages</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="mt-2 flex flex-col gap-2">
+              <FileText className="h-8 w-8 text-[hsl(var(--admin-primary))]" />
+              <p className="text-sm text-muted-foreground">
+                Create, edit, and organize your website pages
+              </p>
+              <div className="mt-4 flex flex-col gap-2">
+                <Link to="/admin/pages" className="admin-btn-primary">
+                  View All Pages
+                </Link>
+                <Link to="/admin/pages/add" className="admin-btn-secondary flex items-center justify-center gap-1">
+                  <PlusCircle size={16} />
+                  <span>Add New Page</span>
+                </Link>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg font-medium">Menus</CardTitle>
+            <CardDescription>Manage your navigation menus</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="mt-2 flex flex-col gap-2">
+              <MenuSquare className="h-8 w-8 text-[hsl(var(--admin-primary))]" />
+              <p className="text-sm text-muted-foreground">
+                Create and customize your website navigation
+              </p>
+              <Link to="/admin/menus" className="admin-btn-primary mt-4">
+                Manage Menus
+              </Link>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-2">
             <CardTitle className="text-lg font-medium">Projects</CardTitle>
             <CardDescription>Manage all your projects</CardDescription>
           </CardHeader>
@@ -47,6 +90,24 @@ const AdminDashboard: React.FC = () => {
                   <span>Add New Project</span>
                 </Link>
               </div>
+            </div>
+          </CardContent>
+        </Card>
+
+        <Card>
+          <CardHeader className="pb-2">
+            <CardTitle className="text-lg font-medium">Media Library</CardTitle>
+            <CardDescription>Manage your media files</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <div className="mt-2 flex flex-col gap-2">
+              <Library className="h-8 w-8 text-[hsl(var(--admin-primary))]" />
+              <p className="text-sm text-muted-foreground">
+                Upload, organize, and manage all your media files
+              </p>
+              <Link to="/admin/media" className="admin-btn-primary mt-4">
+                Manage Media
+              </Link>
             </div>
           </CardContent>
         </Card>

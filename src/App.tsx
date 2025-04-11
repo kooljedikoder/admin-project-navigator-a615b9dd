@@ -12,6 +12,10 @@ import HeroAdmin from "./pages/admin/HeroAdmin";
 import SiteMap from "./pages/admin/SiteMap";
 import AddProject from "./pages/admin/AddProject";
 import EditProject from "./pages/admin/EditProject";
+import PagesAdmin from "./pages/admin/PagesAdmin";
+import AddPage from "./pages/admin/AddPage";
+import EditPage from "./pages/admin/EditPage";
+import MenuAdmin from "./pages/admin/MenuAdmin";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +33,10 @@ const App = () => (
           <Route path="/admin/sitemap" element={<SiteMap />} />
           <Route path="/admin/projects/add" element={<AddProject />} />
           <Route path="/admin/projects/edit/:id" element={<EditProject />} />
+          <Route path="/admin/pages" element={<PagesAdmin />} />
+          <Route path="/admin/pages/add" element={<AddPage />} />
+          <Route path="/admin/pages/edit/:id" element={<EditPage />} />
+          <Route path="/admin/menus" element={<MenuAdmin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
