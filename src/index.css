@@ -1,3 +1,4 @@
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,20 +36,18 @@
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-
     --sidebar-foreground: 240 5.3% 26.1%;
-
     --sidebar-primary: 240 5.9% 10%;
-
     --sidebar-primary-foreground: 0 0% 98%;
-
     --sidebar-accent: 240 4.8% 95.9%;
-
     --sidebar-accent-foreground: 240 5.9% 10%;
-
     --sidebar-border: 220 13% 91%;
-
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --admin-primary: 215 100% 50%;
+    --admin-primary-foreground: 0 0% 100%;
+    --admin-secondary: 215 100% 60%;
+    --admin-accent: 215 100% 45%;
   }
 
   .dark {
@@ -87,6 +86,11 @@
     --sidebar-accent-foreground: 240 4.8% 95.9%;
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+    
+    --admin-primary: 215 100% 65%;
+    --admin-primary-foreground: 0 0% 100%;
+    --admin-secondary: 215 100% 55%;
+    --admin-accent: 215 100% 45%;
   }
 }
 
@@ -98,4 +102,44 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.admin-input {
+  @apply w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+.admin-select {
+  @apply h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+.admin-textarea {
+  @apply flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2;
+}
+
+.admin-label {
+  @apply text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70;
+}
+
+.admin-btn-primary {
+  @apply inline-flex h-10 items-center justify-center rounded-md bg-[hsl(var(--admin-primary))] px-4 py-2 text-sm font-medium text-[hsl(var(--admin-primary-foreground))] ring-offset-background transition-colors hover:bg-[hsl(var(--admin-secondary))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+.admin-btn-secondary {
+  @apply inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-4 py-2 text-sm font-medium text-foreground ring-offset-background transition-colors hover:bg-[hsl(var(--admin-accent))] hover:text-[hsl(var(--admin-primary-foreground))] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50;
+}
+
+.admin-section {
+  @apply mb-8 rounded-lg border border-border bg-card p-6 shadow-sm;
+}
+
+.admin-card {
+  @apply rounded-lg border border-border bg-card p-4 shadow-sm;
+}
+
+.admin-heading {
+  @apply mb-6 text-2xl font-bold;
+}
+
+.admin-subheading {
+  @apply mb-4 text-xl font-semibold;
 }

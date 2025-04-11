@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -5,6 +6,12 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
+import AdminDashboard from "./pages/admin/AdminDashboard";
+import ProjectsAdmin from "./pages/admin/ProjectsAdmin";
+import HeroAdmin from "./pages/admin/HeroAdmin";
+import SiteMap from "./pages/admin/SiteMap";
+import AddProject from "./pages/admin/AddProject";
+import EditProject from "./pages/admin/EditProject";
 
 const queryClient = new QueryClient();
 
@@ -16,6 +23,12 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/admin/projects" element={<ProjectsAdmin />} />
+          <Route path="/admin/hero" element={<HeroAdmin />} />
+          <Route path="/admin/sitemap" element={<SiteMap />} />
+          <Route path="/admin/projects/add" element={<AddProject />} />
+          <Route path="/admin/projects/edit/:id" element={<EditProject />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
