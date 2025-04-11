@@ -6,7 +6,7 @@ import {
   Image, 
   SlidersHorizontal, 
   LayoutList, 
-  SiteMap,
+  Map,
   LogOut
 } from 'lucide-react';
 import { 
@@ -36,7 +36,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
     { title: 'Dashboard', path: '/admin', icon: LayoutDashboard },
     { title: 'Hero Section', path: '/admin/hero', icon: SlidersHorizontal },
     { title: 'Projects', path: '/admin/projects', icon: LayoutList },
-    { title: 'Site Map', path: '/admin/sitemap', icon: SiteMap },
+    { title: 'Site Map', path: '/admin/sitemap', icon: Map },
   ];
 
   return (

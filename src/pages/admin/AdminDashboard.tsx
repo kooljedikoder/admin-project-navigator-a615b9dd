@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { LayoutList, SlidersHorizontal, SiteMap, PlusCircle } from 'lucide-react';
+import { LayoutList, SlidersHorizontal, Map, PlusCircle } from 'lucide-react';
 
 const AdminDashboard: React.FC = () => {
   return (
@@ -58,7 +58,7 @@ const AdminDashboard: React.FC = () => {
           </CardHeader>
           <CardContent>
             <div className="mt-2 flex flex-col gap-2">
-              <SiteMap className="h-8 w-8 text-[hsl(var(--admin-primary))]" />
+              <Map className="h-8 w-8 text-[hsl(var(--admin-primary))]" />
               <p className="text-sm text-muted-foreground">
                 See a complete map of your website structure
               </p>
