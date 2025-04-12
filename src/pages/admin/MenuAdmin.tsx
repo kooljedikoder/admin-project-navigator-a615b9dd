@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -29,8 +28,6 @@ import { toast } from 'sonner';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
-
-<lov-add-dependency>@hello-pangea/dnd@^3.0.0</lov-add-dependency>
 
 // Mock menu locations
 const menuLocations = [
@@ -127,6 +124,8 @@ const menuItemSchema = z.object({
   target: z.enum(['_self', '_blank']),
 });
 
+type MenuItemFormValues = z.infer<typeof menuItemSchema>;
+
 // Available pages for adding to menu
 const availablePages = [
   { id: 'home', title: 'Home', url: '/' },
@@ -150,13 +149,13 @@ const MenuAdmin: React.FC = () => {
   const [selectedItem, setSelectedItem] = useState<MenuItem | null>(null);
   const [expandedItems, setExpandedItems] = useState<string[]>([]);
 
-  const form = useForm({
+  const form = useForm<MenuItemFormValues>({
     resolver: zodResolver(menuItemSchema),
     defaultValues: {
       label: '',
       url: '',
-      type: 'page' as const,
-      target: '_self' as const,
+      type: 'page',
+      target: '_self',
     },
   });
 
