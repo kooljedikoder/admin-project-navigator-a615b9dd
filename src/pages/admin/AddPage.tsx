@@ -38,7 +38,7 @@ const templates = [
 ];
 
 const parentPages = [
-  { id: '', name: 'None (Top Level)' },
+  { id: 'none', name: 'None (Top Level)' }, // Changed empty string to 'none'
   { id: '1', name: 'Home' },
   { id: '2', name: 'About Us' },
   { id: '4', name: 'Services' },
@@ -57,7 +57,7 @@ const AddPage: React.FC = () => {
       metaDescription: '',
       content: '',
       featuredImage: '',
-      parentPage: '',
+      parentPage: 'none', // Changed default from empty string to 'none'
       showInNavigation: false,
     },
   });
@@ -87,7 +87,7 @@ const AddPage: React.FC = () => {
   const previewUrl = React.useMemo(() => {
     let url = '/pages/';
     
-    if (parentPageValue) {
+    if (parentPageValue && parentPageValue !== 'none') { // Updated condition
       const parent = parentPages.find(p => p.id === parentPageValue);
       if (parent && parent.name !== 'None (Top Level)') {
         const parentSlug = parent.name.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-');
