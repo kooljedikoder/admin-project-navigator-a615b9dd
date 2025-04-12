@@ -16,6 +16,7 @@ import PagesAdmin from "./pages/admin/PagesAdmin";
 import AddPage from "./pages/admin/AddPage";
 import EditPage from "./pages/admin/EditPage";
 import MenuAdmin from "./pages/admin/MenuAdmin";
+import SitePages from "./pages/SitePages";
 
 const queryClient = new QueryClient();
 
@@ -37,6 +38,7 @@ const App = () => (
           <Route path="/admin/pages/add" element={<AddPage />} />
           <Route path="/admin/pages/edit/:id" element={<EditPage />} />
           <Route path="/admin/menus" element={<MenuAdmin />} />
+          <Route path="/pages/:slug" element={<SitePages />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

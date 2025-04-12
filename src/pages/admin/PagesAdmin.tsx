@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
-import { PlusCircle, Pencil, Trash2, Eye, Grid, List, ChevronRight, ChevronDown } from 'lucide-react';
+import { PlusCircle, Pencil, Trash2, Eye, Grid, List, ChevronRight, ChevronDown, ExternalLink } from 'lucide-react';
 import { toast } from 'sonner';
 
 // Mock page data
@@ -120,10 +120,18 @@ const PagesAdmin: React.FC = () => {
           <h2 className="text-xl font-semibold">All Pages</h2>
           <p className="text-sm text-muted-foreground">Manage your website pages</p>
         </div>
-        <Link to="/admin/pages/add" className="admin-btn-primary flex items-center gap-1">
-          <PlusCircle size={16} />
-          <span>Add New Page</span>
-        </Link>
+        <div className="flex gap-2">
+          <Link to="/admin/pages/add" className="admin-btn-primary flex items-center gap-1">
+            <PlusCircle size={16} />
+            <span>Add New Page</span>
+          </Link>
+          <Button variant="outline" asChild>
+            <Link to="/" className="flex items-center gap-1">
+              <ExternalLink size={16} />
+              <span>View Site</span>
+            </Link>
+          </Button>
+        </div>
       </div>
 
       <Card className="mb-6 p-4">
@@ -206,9 +214,11 @@ const PagesAdmin: React.FC = () => {
                         variant="ghost"
                         size="sm"
                         className="h-8 w-8 p-0"
-                        onClick={() => toast.info('View page')}
+                        asChild
                       >
-                        <Eye size={16} />
+                        <Link to={`/pages/${page.slug}`} target="_blank">
+                          <Eye size={16} />
+                        </Link>
                       </Button>
                       <Link to={`/admin/pages/edit/${page.id}`}>
                         <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
@@ -252,9 +262,11 @@ const PagesAdmin: React.FC = () => {
                     variant="ghost"
                     size="sm"
                     className="p-0 text-gray-500"
-                    onClick={() => toast.info('View page')}
+                    asChild
                   >
-                    <Eye size={16} />
+                    <Link to={`/pages/${page.slug}`} target="_blank">
+                      <Eye size={16} />
+                    </Link>
                   </Button>
                   <Link to={`/admin/pages/edit/${page.id}`}>
                     <Button variant="ghost" size="sm" className="p-0 text-gray-500">

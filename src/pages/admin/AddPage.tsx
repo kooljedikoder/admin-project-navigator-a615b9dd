@@ -12,6 +12,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Textarea } from '@/components/ui/textarea';
 import { Switch } from '@/components/ui/switch';
 import { toast } from 'sonner';
+import { ExternalLink } from 'lucide-react';
 
 const formSchema = z.object({
   title: z.string().min(1, { message: 'Title is required' }),
@@ -78,6 +79,26 @@ const AddPage: React.FC = () => {
     }
   };
 
+  // Get current values for URL preview
+  const parentPageValue = form.watch('parentPage');
+  const slugValue = form.watch('slug');
+  
+  // Create URL preview
+  const previewUrl = React.useMemo(() => {
+    let url = '/pages/';
+    
+    if (parentPageValue) {
+      const parent = parentPages.find(p => p.id === parentPageValue);
+      if (parent && parent.name !== 'None (Top Level)') {
+        const parentSlug = parent.name.toLowerCase().replace(/[^\w\s]/gi, '').replace(/\s+/g, '-');
+        url += `${parentSlug}/`;
+      }
+    }
+    
+    url += slugValue || '[slug]';
+    return url;
+  }, [parentPageValue, slugValue]);
+
   return (
     <AdminLayout title="Add New Page">
       <div className="max-w-4xl">
@@ -116,8 +137,29 @@ const AddPage: React.FC = () => {
                         Generate
                       </Button>
                     </div>
-                    <FormDescription>
-                      The URL-friendly version of the title
+                    <FormDescription className="flex items-center gap-1">
+                      <span>Preview: </span>
+                      <code className="rounded bg-muted px-1 text-xs">
+                        {previewUrl}
+                      </code>
+                      {slugValue && (
+                        <Button
+                          type="button"
+                          variant="ghost"
+                          size="sm"
+                          className="h-5 w-5 p-0"
+                          asChild
+                        >
+                          <a
+                            href={previewUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-muted-foreground hover:text-foreground"
+                          >
+                            <ExternalLink size={12} />
+                          </a>
+                        </Button>
+                      )}
                     </FormDescription>
                     <FormMessage />
                   </FormItem>
