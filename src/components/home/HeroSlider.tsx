@@ -49,8 +49,9 @@ export default function HeroSlider() {
     <div className="relative h-[80vh] w-full overflow-hidden">
       <Carousel
         className="h-full w-full"
-        current={currentSlide}
-        onSelect={setCurrentSlide}
+        // Fix: Remove the problematic props
+        // current={currentSlide}
+        // onSelect={setCurrentSlide}
       >
         <CarouselContent className="h-full">
           {slides.map((slide, index) => (
