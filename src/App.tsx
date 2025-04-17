@@ -18,6 +18,7 @@ import EditPage from "./pages/admin/EditPage";
 import MenuAdmin from "./pages/admin/MenuAdmin";
 import SitePages from "./pages/SitePages";
 import BlogAdmin from "./pages/admin/BlogAdmin";
+import MediaLibrary from "./pages/admin/MediaLibrary";
 
 const queryClient = new QueryClient();
 
@@ -40,6 +41,7 @@ const App = () => (
           <Route path="/admin/pages/edit/:id" element={<EditPage />} />
           <Route path="/admin/menus" element={<MenuAdmin />} />
           <Route path="/admin/blog" element={<BlogAdmin />} />
+          <Route path="/admin/media" element={<MediaLibrary />} />
           <Route path="/pages/:slug" element={<SitePages />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
