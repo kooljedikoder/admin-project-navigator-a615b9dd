@@ -29,6 +29,7 @@ import {
   SidebarProvider,
   SidebarTrigger
 } from "@/components/ui/sidebar";
+import { Badge } from '@/components/ui/badge';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -45,7 +46,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
     { title: 'Menus', path: '/admin/menus', icon: MenuSquare },
     { title: 'Projects', path: '/admin/projects', icon: LayoutList },
     { title: 'Media Library', path: '/admin/media', icon: Library },
-    { title: 'Blog', path: '/admin/blog', icon: PenSquare },
+    { title: 'Blog', path: '/admin/blog', icon: PenSquare, status: 'New' },
     { title: 'Users', path: '/admin/users', icon: Users },
     { title: 'Settings', path: '/admin/settings', icon: Settings },
     { title: 'Site Map', path: '/admin/sitemap', icon: Map },
@@ -76,6 +77,11 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
                         <Link to={item.path} className="flex items-center gap-3">
                           <item.icon size={18} />
                           <span>{item.title}</span>
+                          {item.status && (
+                            <Badge className="ml-auto bg-[hsl(var(--admin-primary))] text-white text-xs">
+                              {item.status}
+                            </Badge>
+                          )}
                         </Link>
                       </SidebarMenuButton>
                     </SidebarMenuItem>
