@@ -52,6 +52,17 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
     { title: 'Site Map', path: '/admin/sitemap', icon: Map },
   ];
 
+  // Function to check if a path is active (including sub-paths)
+  const isPathActive = (path: string) => {
+    if (path === '/admin' && location.pathname === '/admin') {
+      return true;
+    }
+    
+    // For any other path, check if the current location starts with the path
+    // But avoid matching parent paths for other menu items
+    return path !== '/admin' && location.pathname.startsWith(path);
+  };
+
   return (
     <SidebarProvider>
       <div className="flex min-h-screen w-full bg-gray-50">
@@ -72,7 +83,7 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
                     <SidebarMenuItem key={item.title}>
                       <SidebarMenuButton 
                         asChild
-                        className={location.pathname === item.path ? "bg-[hsl(var(--admin-accent))] text-white" : ""}
+                        className={isPathActive(item.path) ? "bg-[hsl(var(--admin-accent))] text-white" : ""}
                       >
                         <Link to={item.path} className="flex items-center gap-3">
                           <item.icon size={18} />

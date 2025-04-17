@@ -19,6 +19,8 @@ import MenuAdmin from "./pages/admin/MenuAdmin";
 import SitePages from "./pages/SitePages";
 import BlogAdmin from "./pages/admin/BlogAdmin";
 import MediaLibrary from "./pages/admin/MediaLibrary";
+import UsersAdmin from "./pages/admin/UsersAdmin";
+import SettingsAdmin from "./pages/admin/SettingsAdmin";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const App = () => (
           <Route path="/admin/menus" element={<MenuAdmin />} />
           <Route path="/admin/blog" element={<BlogAdmin />} />
           <Route path="/admin/media" element={<MediaLibrary />} />
+          <Route path="/admin/users" element={<UsersAdmin />} />
+          <Route path="/admin/settings" element={<SettingsAdmin />} />
           <Route path="/pages/:slug" element={<SitePages />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
