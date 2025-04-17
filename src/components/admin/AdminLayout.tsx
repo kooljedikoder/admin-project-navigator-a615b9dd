@@ -13,7 +13,8 @@ import {
   Library,
   PenSquare,
   Users,
-  Settings
+  Settings,
+  ExternalLink
 } from 'lucide-react';
 import { 
   Sidebar, 
@@ -30,6 +31,7 @@ import {
   SidebarTrigger
 } from "@/components/ui/sidebar";
 import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 interface AdminLayoutProps {
   children: React.ReactNode;
@@ -112,6 +114,16 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
                   </Link>
                 </SidebarMenuButton>
               </SidebarMenuItem>
+              
+              {/* View Frontend Link */}
+              <SidebarMenuItem>
+                <SidebarMenuButton asChild>
+                  <a href="/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-[hsl(var(--admin-primary))] hover:underline">
+                    <ExternalLink size={18} />
+                    <span>View Frontend</span>
+                  </a>
+                </SidebarMenuButton>
+              </SidebarMenuItem>
             </SidebarMenu>
           </SidebarFooter>
         </Sidebar>
@@ -123,6 +135,13 @@ const AdminLayout: React.FC<AdminLayoutProps> = ({ children, title }) => {
                 <SidebarTrigger />
                 <h1 className="text-2xl font-bold">{title}</h1>
               </div>
+              
+              <Button asChild variant="outline" size="sm" className="gap-2">
+                <a href="/" target="_blank" rel="noopener noreferrer">
+                  <ExternalLink size={16} />
+                  <span>Preview Site</span>
+                </a>
+              </Button>
             </div>
           </header>
           

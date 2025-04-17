@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -84,6 +85,10 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'scroll': {
+					'0%': { transform: 'translateX(0)' },
+					'100%': { transform: 'translateX(calc(-150px * 8))' }
 				}
 			},
 			animation: {
