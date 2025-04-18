@@ -14,14 +14,14 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="lg:hidden bg-transparent border-t-0">
+    <div className="lg:hidden bg-[#1704D5]/95 backdrop-blur-sm border-t-0 text-white">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex flex-col gap-4">
           {initialMenuItems.map((item) => (
             <div key={item.id}>
               {item.children.length > 0 ? (
                 <details className="group">
-                  <summary className="font-light text-gray-800 hover:text-blue-600 py-2 border-b-0 flex justify-between items-center cursor-pointer">
+                  <summary className="font-light text-white hover:text-blue-200 py-2 border-b-0 flex justify-between items-center cursor-pointer">
                     <div className="flex items-center gap-2">
                       {getMenuIcon(item.label)}
                       <span>{item.label}</span>
@@ -33,7 +33,7 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
                       <Link 
                         key={child.id}
                         to={child.url} 
-                        className="block text-gray-600 hover:text-blue-600 py-1 bg-transparent"
+                        className="block text-white/80 hover:text-white py-1 bg-transparent font-light"
                         onClick={onClose}
                       >
                         {child.label}
@@ -44,7 +44,7 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
               ) : (
                 <Link 
                   to={item.url} 
-                  className="font-light text-gray-800 hover:text-blue-600 py-2 border-b-0 flex items-center gap-2 bg-transparent"
+                  className="font-light text-white hover:text-blue-200 py-2 border-b-0 flex items-center gap-2 bg-transparent"
                   onClick={onClose}
                 >
                   {getMenuIcon(item.label)}
@@ -57,7 +57,7 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
           <div className="mt-4 flex flex-col gap-4">
             <Link 
               to="/admin"
-              className="w-full py-2 flex justify-center items-center gap-2 border-0 rounded-md text-gray-700 hover:text-blue-600 bg-transparent"
+              className="w-full py-2 flex justify-center items-center gap-2 border border-white/20 rounded-md text-white hover:text-blue-200 bg-transparent font-light"
               onClick={onClose}
             >
               <UserRound size={18} />

@@ -25,7 +25,7 @@ const MainNavigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Re-add the getMenuIcon function that is still being used by MobileNav
+  // Get menu icon function used by MobileNav
   const getMenuIcon = (label: string) => {
     switch(label) {
       case 'In the Beginning': return <Book className="mr-2 h-4 w-4" />;
@@ -46,8 +46,8 @@ const MainNavigation = () => {
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 w-full ${
           isScrolled 
-            ? 'bg-[#1704D5] shadow-md py-2' 
-            : 'bg-[#1704D5]/90 backdrop-blur-sm py-4'
+            ? 'bg-[#1704D5]/80 shadow-md py-2 backdrop-blur-sm' 
+            : 'bg-[#1704D5]/60 backdrop-blur-sm py-4'
         }`}
       >
         <div className="container mx-auto px-4">
