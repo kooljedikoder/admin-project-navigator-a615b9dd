@@ -21,7 +21,7 @@ const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats, ti
     <section className="bg-[#1A1DB0]/10">
       <div className="py-16">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-          <div className="md:col-span-1 md:w-1/2">
+          <div className="md:col-span-1 md:w-2/3">
             <img 
               src="https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80" 
               alt="Impact"
