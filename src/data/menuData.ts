@@ -1,4 +1,3 @@
-
 import { MenuItem } from '@/types/menu';
 
 // Mock menu locations
@@ -27,25 +26,33 @@ export const initialMenuItems: MenuItem[] = [
         children: [],
       },
       {
-        id: 'our-vision',
-        label: 'Our Vision',
-        url: '/beginning#our-vision',
+        id: 'our-heritage',
+        label: 'Our Heritage',
+        url: '/beginning#our-heritage',
         type: 'page',
         target: '_self',
         children: [],
       },
       {
-        id: 'our-mission',
-        label: 'Our Mission',
-        url: '/beginning#our-mission',
+        id: 'our-evolution',
+        label: 'Our Evolution',
+        url: '/beginning#our-evolution',
         type: 'page',
         target: '_self',
         children: [],
       },
       {
-        id: 'ma-foundation',
-        label: 'MA Foundation',
-        url: '/ma-foundation',
+        id: 'key-milestones',
+        label: 'Key Milestones',
+        url: '/beginning#key-milestones',
+        type: 'page',
+        target: '_self',
+        children: [],
+      },
+      {
+        id: 'founding-principles',
+        label: 'Founding Principles',
+        url: '/beginning#founding-principles',
         type: 'page',
         target: '_self',
         children: [],
