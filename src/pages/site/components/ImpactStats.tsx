@@ -14,20 +14,23 @@ interface ImpactStatsProps {
 
 const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats }) => {
   return (
-    <div>
-      <h3 className="text-2xl font-light mb-4">{title}</h3>
-      <p className="text-lg max-w-2xl mx-auto mb-8 font-light">
-        {description}
-      </p>
-      <div className="grid md:grid-cols-4 gap-6">
-        {stats.map((stat, index) => (
-          <div key={index}>
-            <div className="text-3xl font-light text-blue-600 mb-2">{stat.value}</div>
-            <div className="text-gray-600 font-light">{stat.label}</div>
-          </div>
-        ))}
+    <section className="relative py-16 bg-blue-600 text-white overflow-hidden">
+      <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-10"></div>
+      <div className="container mx-auto px-4 relative z-10">
+        <h3 className="text-3xl font-bold mb-4 text-center">{title}</h3>
+        <p className="text-lg max-w-2xl mx-auto mb-12 text-blue-100 text-center">
+          {description}
+        </p>
+        <div className="grid md:grid-cols-4 gap-8">
+          {stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-4xl font-bold mb-2">{stat.value}</div>
+              <div className="text-blue-100">{stat.label}</div>
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
+    </section>
   );
 };
 
