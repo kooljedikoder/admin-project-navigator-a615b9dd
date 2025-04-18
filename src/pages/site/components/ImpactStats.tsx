@@ -14,7 +14,7 @@ interface ImpactStatsProps {
 
 const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats }) => {
   return (
-    <div className="bg-gray-50 p-8 rounded-lg text-center">
+    <div>
       <h3 className="text-2xl font-light mb-4">{title}</h3>
       <p className="text-lg max-w-2xl mx-auto mb-8 font-light">
         {description}
