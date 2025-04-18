@@ -1,8 +1,7 @@
-
 import React from 'react';
-import { Dialog, DialogContent, DialogTitle } from "@/components/ui/dialog";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, ChevronRight } from 'lucide-react';
+import { ArrowRight, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface SubLink {
@@ -39,6 +38,9 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-6xl p-0 overflow-hidden">
+        <button onClick={onClose} className="absolute right-4 top-4 z-50">
+          <X className="h-8 w-8 text-[#7f86dc] hover:text-[#7f86dc]/80 transition-colors" />
+        </button>
         <div className="grid grid-cols-12">
           <div className="col-span-8 p-8 bg-white">
             <h2 className="text-3xl font-semibold mb-4 text-[#7f86dc]">{title}</h2>
@@ -61,15 +63,6 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                       </h3>
                       <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
                     </div>
-                    <div className="ml-auto flex items-center">
-                      <Button 
-                        size="sm"
-                        className="animate-pulse bg-[#7f86dc] hover:bg-[#7f86dc]/90 text-white"
-                      >
-                        <ChevronRight size={16} />
-                        <span className="ml-1 text-xs">Go to section</span>
-                      </Button>
-                    </div>
                   </button>
                 ))}
               </div>
@@ -90,15 +83,6 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                       </h3>
                       <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
                     </div>
-                    <div className="ml-auto flex items-center">
-                      <Button 
-                        size="sm"
-                        className="animate-pulse bg-[#7f86dc] hover:bg-[#7f86dc]/90 text-white"
-                      >
-                        <ChevronRight size={16} />
-                        <span className="ml-1 text-xs">Go to section</span>
-                      </Button>
-                    </div>
                   </button>
                 ))}
               </div>
@@ -110,7 +94,7 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                 className="bg-[#7f86dc] hover:bg-[#7f86dc]/90 text-white"
                 size="lg"
               >
-                Close
+                Go to Page
                 <ArrowRight className="ml-2" />
               </Button>
             </div>
