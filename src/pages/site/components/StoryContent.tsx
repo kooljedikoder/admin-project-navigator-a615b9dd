@@ -26,17 +26,9 @@ const StoryContent: React.FC<StoryContentProps> = ({
 }) => {
   return (
     <Card className="p-8 shadow-lg">
-      <div className={`grid md:grid-cols-2 gap-12 items-start ${imagePosition === 'right' ? 'flex-row-reverse' : ''}`}>
-        {imagePosition === 'left' ? (
-          <div>
-            <img 
-              src={image} 
-              alt={title} 
-              className="rounded-lg shadow-lg w-full h-[400px] object-cover"
-            />
-          </div>
-        ) : null}
-        <div>
+      <div className={`grid md:grid-cols-2 gap-12 items-center ${imagePosition === 'right' ? 'md:grid-flow-col-dense' : ''}`}>
+        {/* Content Section */}
+        <div className={`${imagePosition === 'right' ? 'md:col-start-1' : ''}`}>
           <div className="mb-8">
             <StoryStep id={id} stepNumber={stepNumber} title={title}>
               <div className="mt-4">
@@ -58,18 +50,19 @@ const StoryContent: React.FC<StoryContentProps> = ({
             ))}
           </Accordion>
         </div>
-        {imagePosition === 'right' ? (
-          <div>
-            <img 
-              src={image} 
-              alt={title} 
-              className="rounded-lg shadow-lg w-full h-[400px] object-cover"
-            />
-          </div>
-        ) : null}
+
+        {/* Image Section */}
+        <div className={`${imagePosition === 'right' ? 'md:col-start-2' : ''}`}>
+          <img 
+            src={image} 
+            alt={title} 
+            className="rounded-lg shadow-lg w-full h-[400px] object-cover"
+          />
+        </div>
       </div>
     </Card>
   );
 };
 
 export default StoryContent;
+

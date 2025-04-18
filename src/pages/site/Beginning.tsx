@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainNavigation from '@/components/home/MainNavigation';
@@ -64,7 +65,7 @@ const Beginning = () => {
                 title="Our Founding Story"
                 description="Founded in 2010, our journey began with a bold vision to transform how businesses approach digital solutions."
                 image="https://images.unsplash.com/photo-1486718448742-163732cd1544"
-                imagePosition="left"
+                imagePosition="right"
                 items={storyContent.foundingStory}
               />
               
@@ -74,7 +75,7 @@ const Beginning = () => {
                 title="Our Heritage"
                 description="Built on decades of collective experience, our heritage combines traditional business wisdom with cutting-edge innovation."
                 image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
-                imagePosition="right"
+                imagePosition="left"
                 items={storyContent.heritage}
               />
               
@@ -84,7 +85,7 @@ const Beginning = () => {
                 title="Our Evolution"
                 description="From a traditional consulting firm to a dynamic technology partner, we've continually adapted to meet market demands."
                 image="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
-                imagePosition="left"
+                imagePosition="right"
                 items={storyContent.evolution}
               />
               
@@ -94,7 +95,7 @@ const Beginning = () => {
                 title="Key Milestones"
                 description="Our journey has been marked by significant achievements that have solidified our position as industry leaders."
                 image="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
-                imagePosition="right"
+                imagePosition="left"
                 items={storyContent.milestones}
               />
               
@@ -104,7 +105,7 @@ const Beginning = () => {
                 title="Founding Principles"
                 description="Our core principles have been the driving force behind every decision and innovation."
                 image="https://images.unsplash.com/photo-1486718448742-163732cd1544"
-                imagePosition="left"
+                imagePosition="right"
                 items={storyContent.principles}
               />
               
@@ -130,3 +131,4 @@ const Beginning = () => {
 };
 
 export default Beginning;
+
