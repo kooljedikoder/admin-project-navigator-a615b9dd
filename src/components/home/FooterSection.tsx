@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { 
   Phone, 
@@ -12,7 +13,7 @@ import {
 
 const FooterSection: React.FC = () => {
   return (
-    <footer className="bg-[#1a1db0] text-white pt-16 pb-8">
+    <footer className="bg-blue-950 text-white pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
