@@ -1,8 +1,9 @@
+
 import React from 'react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, X } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 interface SubLink {
   id: string;
@@ -22,17 +23,14 @@ interface NavModalProps {
 }
 
 const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: NavModalProps) => {
+  const navigate = useNavigate();
   const firstColumn = subLinks.slice(0, 3);
   const secondColumn = subLinks.slice(3, 6);
 
-  const scrollToSection = (sectionId: string) => {
+  const handleNavigation = (url: string) => {
     onClose();
-    setTimeout(() => {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    window.scrollTo(0, 0);
+    navigate(url);
   };
 
   return (
@@ -49,9 +47,8 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
             <div className="grid grid-cols-2 gap-6 mb-8">
               <div className="space-y-4">
                 {firstColumn.map((link) => (
-                  <button
+                  <div
                     key={link.id}
-                    onClick={() => scrollToSection(link.id)}
                     className="w-full text-left group flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
                   >
                     <div className="flex-shrink-0 mr-3 text-[#1A1DB0]">
@@ -63,15 +60,14 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                       </h3>
                       <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
                     </div>
-                  </button>
+                  </div>
                 ))}
               </div>
 
               <div className="space-y-4">
                 {secondColumn.map((link) => (
-                  <button
+                  <div
                     key={link.id}
-                    onClick={() => scrollToSection(link.id)}
                     className="w-full text-left group flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
                   >
                     <div className="flex-shrink-0 mr-3 text-[#1A1DB0]">
@@ -83,15 +79,15 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                       </h3>
                       <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
                     </div>
-                  </button>
+                  </div>
                 ))}
               </div>
             </div>
 
             <div className="text-center">
               <Button
-                onClick={onClose}
-                className="bg-[#1A1DB0] hover:bg-[#1A1DB0]/90 text-white"
+                onClick={() => handleNavigation(subLinks[0].url)}
+                className="bg-[#1A1DB0] hover:bg-[#1A1DB0]/90 text-white animate-pulse"
                 size="lg"
               >
                 Go to Page
