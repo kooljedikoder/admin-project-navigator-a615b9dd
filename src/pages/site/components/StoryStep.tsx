@@ -20,8 +20,8 @@ const StoryStep: React.FC<StoryStepProps> = ({
   return (
     <div id={id} className="relative scroll-mt-24">
       {title && (
-        <div className="flex items-center gap-4 mb-6">
-          <div className="w-8 h-8 rounded-full bg-[#1a1db0] text-white text-lg font-bold flex items-center justify-center">
+        <div className="flex items-start gap-4 mb-6">
+          <div className="w-8 h-8 rounded-full bg-[#1a1db0] text-white text-lg font-bold flex items-center justify-center shrink-0">
             {stepNumber}
           </div>
           <h3 className="text-3xl font-light text-[#1a1db0]">{title}</h3>
@@ -33,4 +33,3 @@ const StoryStep: React.FC<StoryStepProps> = ({
 };
 
 export default StoryStep;
-
