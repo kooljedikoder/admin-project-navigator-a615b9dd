@@ -105,6 +105,7 @@ const Beginning = () => {
                   'Continuous improvement'
                 ]}
                 image="https://images.unsplash.com/photo-1486312338219-25f4aba1f72f"
+                imagePosition="right"
               />
               
               <StoryStep 
@@ -119,7 +120,7 @@ const Beginning = () => {
                   'How do we select and support our clients?'
                 ]}
                 image="https://images.unsplash.com/photo-1488590528505-98d2b5ade38b"
-                imagePosition="right"
+                imagePosition="left"
               />
             </div>
               
