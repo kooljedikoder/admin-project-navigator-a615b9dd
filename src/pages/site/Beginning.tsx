@@ -66,6 +66,7 @@ const Beginning = () => {
                 image="https://images.unsplash.com/photo-1486718448742-163732cd1544"
                 imagePosition="right"
                 items={storyContent.foundingStory}
+                titleColor="#7f86dc"
               />
               
               <StoryContent
@@ -76,6 +77,7 @@ const Beginning = () => {
                 image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
                 imagePosition="left"
                 items={storyContent.heritage}
+                titleColor="#7f86dc"
               />
               
               <StoryContent
@@ -108,7 +110,7 @@ const Beginning = () => {
                 items={storyContent.principles}
               />
               
-              <FAQSection items={faqItems} />
+              <FAQSection items={faqItems} titleColor="#7f86dc" />
             </div>
           </div>
         </section>
@@ -123,6 +125,7 @@ const Beginning = () => {
           { value: '95%', label: 'Client Satisfaction' },
           { value: '24/7', label: 'Support' }
         ]}
+        titleColor="#7f86dc"
       />
       <FooterSection />
     </div>
