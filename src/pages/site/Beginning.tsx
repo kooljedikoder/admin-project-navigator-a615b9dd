@@ -1,4 +1,3 @@
-
 import React from 'react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
@@ -113,16 +112,6 @@ const Beginning = () => {
             </div>
             
             <div className="w-full bg-gray-50 p-8 rounded-lg text-center">
-              <ImpactStats 
-                title="Our Impact"
-                description="Our commitment to excellence and innovation has driven tangible results across industries and organizations."
-                stats={[
-                  { value: '100+', label: 'Global Clients' },
-                  { value: '15+', label: 'Years Experience' },
-                  { value: '95%', label: 'Client Satisfaction' },
-                  { value: '24/7', label: 'Support' }
-                ]}
-              />
               <div className="mt-8">
                 <Link to="/contact">
                   <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
@@ -135,6 +124,16 @@ const Beginning = () => {
         </section>
       </div>
       
+      <ImpactStats 
+        title="Our Impact"
+        description="Our commitment to excellence and innovation has driven tangible results across industries and organizations."
+        stats={[
+          { value: '100+', label: 'Global Clients' },
+          { value: '15+', label: 'Years Experience' },
+          { value: '95%', label: 'Client Satisfaction' },
+          { value: '24/7', label: 'Support' }
+        ]}
+      />
       <FooterSection />
     </div>
   );
