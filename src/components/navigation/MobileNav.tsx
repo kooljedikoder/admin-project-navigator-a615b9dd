@@ -7,10 +7,9 @@ import { initialMenuItems } from '@/data/menuData';
 interface MobileNavProps {
   isOpen: boolean;
   onClose: () => void;
-  getMenuIcon: (label: string) => JSX.Element | null;
 }
 
-const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
+const MobileNav = ({ isOpen, onClose }: MobileNavProps) => {
   if (!isOpen) return null;
 
   return (
@@ -22,10 +21,7 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
               {item.children.length > 0 ? (
                 <details className="group">
                   <summary className="font-light text-white hover:text-blue-200 py-2 border-b-0 flex justify-between items-center cursor-pointer">
-                    <div className="flex items-center gap-2">
-                      {getMenuIcon(item.label)}
-                      <span>{item.label}</span>
-                    </div>
+                    <span>{item.label}</span>
                     <ChevronDown size={16} className="group-open:rotate-180 transition-transform" />
                   </summary>
                   <div className="pl-4 mt-2 space-y-2">
@@ -47,7 +43,6 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
                   className="font-light text-white hover:text-blue-200 py-2 border-b-0 flex items-center gap-2 bg-transparent"
                   onClick={onClose}
                 >
-                  {getMenuIcon(item.label)}
                   <span>{item.label}</span>
                 </Link>
               )}
