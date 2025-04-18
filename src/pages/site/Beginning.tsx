@@ -110,16 +110,6 @@ const Beginning = () => {
               
               <FAQSection items={faqItems} />
             </div>
-            
-            <div className="w-full bg-gray-50 p-8 rounded-lg text-center">
-              <div className="mt-8">
-                <Link to="/contact">
-                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white">
-                    Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </Link>
-              </div>
-            </div>
           </div>
         </section>
       </div>
