@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -10,15 +11,26 @@ import {
   Facebook, 
   Twitter, 
   Linkedin,
-  UserRound 
+  UserRound,
+  Book,
+  Users,
+  Grid,
+  Handshake,
+  Compass,
+  Star 
 } from 'lucide-react';
 import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  navigationMenuTriggerStyle
+} from "@/components/ui/navigation-menu";
+import { cn } from "@/lib/utils";
 import { Button } from '@/components/ui/button';
+import { initialMenuItems } from '@/data/menuData';
 
 const MainNavigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,6 +48,20 @@ const MainNavigation: React.FC = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Get icon based on menu label
+  const getMenuIcon = (label: string) => {
+    switch(label) {
+      case 'In the Beginning': return <Book className="mr-2 h-4 w-4" />;
+      case 'Who We Are': return <Users className="mr-2 h-4 w-4" />;
+      case 'What We Do': return <Grid className="mr-2 h-4 w-4" />;
+      case 'When & For Whom': return <Handshake className="mr-2 h-4 w-4" />;
+      case 'Where We Shine': return <Compass className="mr-2 h-4 w-4" />;
+      case 'Why Choose Us': return <Star className="mr-2 h-4 w-4" />;
+      case 'How to Reach Us': return <Phone className="mr-2 h-4 w-4" />;
+      default: return null;
+    }
+  };
   
   return (
     <>
@@ -96,77 +122,54 @@ const MainNavigation: React.FC = () => {
             </Link>
             
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-6">
-              <Link 
-                to="/" 
-                className={`font-medium ${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`}
-              >
-                Home
-              </Link>
-              
-              <DropdownMenu>
-                <DropdownMenuTrigger 
-                  className={`flex items-center gap-1 font-medium ${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`}
-                >
-                  <span>About</span>
-                  <ChevronDown size={16} />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="center">
-                  <DropdownMenuItem asChild>
-                    <Link to="/pages/about-us">Company Overview</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/pages/about-us/team">Our Team</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/pages/about-us">Our Mission</Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              
-              <DropdownMenu>
-                <DropdownMenuTrigger 
-                  className={`flex items-center gap-1 font-medium ${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`}
-                >
-                  <span>Services</span>
-                  <ChevronDown size={16} />
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="center">
-                  <DropdownMenuItem asChild>
-                    <Link to="/pages/services">Business Consulting</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/pages/services">Digital Marketing</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/pages/services">Web Development</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuItem asChild>
-                    <Link to="/pages/services">All Services</Link>
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
-              
-              <Link 
-                to="/admin/projects" 
-                className={`font-medium ${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`}
-              >
-                Case Studies
-              </Link>
-              
-              <Link 
-                to="/blog" 
-                className={`font-medium ${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`}
-              >
-                Blog
-              </Link>
-              
-              <Link 
-                to="/pages/contact" 
-                className={`font-medium ${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`}
-              >
-                Contact
-              </Link>
+            <nav className="hidden lg:block">
+              <NavigationMenu>
+                <NavigationMenuList>
+                  {initialMenuItems.map((item) => (
+                    <NavigationMenuItem key={item.id}>
+                      {item.children.length > 0 ? (
+                        <>
+                          <NavigationMenuTrigger className={`${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`}>
+                            <div className="flex items-center">
+                              {getMenuIcon(item.label)}
+                              {item.label}
+                            </div>
+                          </NavigationMenuTrigger>
+                          <NavigationMenuContent>
+                            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                              {item.children.map((child) => (
+                                <li key={child.id}>
+                                  <NavigationMenuLink asChild>
+                                    <Link
+                                      to={child.url}
+                                      className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                    >
+                                      <div className="text-sm font-medium leading-none">{child.label}</div>
+                                    </Link>
+                                  </NavigationMenuLink>
+                                </li>
+                              ))}
+                            </ul>
+                          </NavigationMenuContent>
+                        </>
+                      ) : (
+                        <Link 
+                          to={item.url} 
+                          className={cn(
+                            navigationMenuTriggerStyle(),
+                            `${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`,
+                          )}
+                        >
+                          <div className="flex items-center">
+                            {getMenuIcon(item.label)}
+                            {item.label}
+                          </div>
+                        </Link>
+                      )}
+                    </NavigationMenuItem>
+                  ))}
+                </NavigationMenuList>
+              </NavigationMenu>
             </nav>
             
             {/* CTA and Admin Button */}
@@ -205,109 +208,55 @@ const MainNavigation: React.FC = () => {
           <div className="lg:hidden bg-white border-t">
             <div className="container mx-auto px-4 py-4">
               <nav className="flex flex-col gap-4">
-                <Link 
-                  to="/" 
-                  className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Home
-                </Link>
-                
-                <details className="group">
-                  <summary className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200 flex justify-between items-center cursor-pointer">
-                    About
-                    <ChevronDown size={16} className="group-open:rotate-180 transition-transform" />
-                  </summary>
-                  <div className="pl-4 mt-2 space-y-2">
-                    <Link 
-                      to="/pages/about-us" 
-                      className="block text-gray-600 hover:text-blue-600 py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Company Overview
-                    </Link>
-                    <Link 
-                      to="/pages/about-us/team" 
-                      className="block text-gray-600 hover:text-blue-600 py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Our Team
-                    </Link>
-                    <Link 
-                      to="/pages/about-us" 
-                      className="block text-gray-600 hover:text-blue-600 py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Our Mission
-                    </Link>
+                {initialMenuItems.map((item) => (
+                  <div key={item.id}>
+                    {item.children.length > 0 ? (
+                      <details className="group">
+                        <summary className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200 flex justify-between items-center cursor-pointer">
+                          <div className="flex items-center gap-2">
+                            {getMenuIcon(item.label)}
+                            <span>{item.label}</span>
+                          </div>
+                          <ChevronDown size={16} className="group-open:rotate-180 transition-transform" />
+                        </summary>
+                        <div className="pl-4 mt-2 space-y-2">
+                          {item.children.map((child) => (
+                            <Link 
+                              key={child.id}
+                              to={child.url} 
+                              className="block text-gray-600 hover:text-blue-600 py-1"
+                              onClick={() => setIsMenuOpen(false)}
+                            >
+                              {child.label}
+                            </Link>
+                          ))}
+                        </div>
+                      </details>
+                    ) : (
+                      <Link 
+                        to={item.url} 
+                        className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200 flex items-center gap-2"
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {getMenuIcon(item.label)}
+                        <span>{item.label}</span>
+                      </Link>
+                    )}
                   </div>
-                </details>
+                ))}
                 
-                <details className="group">
-                  <summary className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200 flex justify-between items-center cursor-pointer">
-                    Services
-                    <ChevronDown size={16} className="group-open:rotate-180 transition-transform" />
-                  </summary>
-                  <div className="pl-4 mt-2 space-y-2">
-                    <Link 
-                      to="/pages/services" 
-                      className="block text-gray-600 hover:text-blue-600 py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Business Consulting
-                    </Link>
-                    <Link 
-                      to="/pages/services" 
-                      className="block text-gray-600 hover:text-blue-600 py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Digital Marketing
-                    </Link>
-                    <Link 
-                      to="/pages/services" 
-                      className="block text-gray-600 hover:text-blue-600 py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Web Development
-                    </Link>
-                    <Link 
-                      to="/pages/services" 
-                      className="block text-gray-600 hover:text-blue-600 py-1"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      All Services
-                    </Link>
-                  </div>
-                </details>
-                
-                <Link 
-                  to="/admin/projects" 
-                  className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Case Studies
-                </Link>
-                
-                <Link 
-                  to="/blog" 
-                  className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Blog
-                </Link>
-                
-                <Link 
-                  to="/pages/contact" 
-                  className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Contact
-                </Link>
-                
-                <div className="mt-4">
+                <div className="mt-4 flex flex-col gap-4">
                   <Button className="w-full bg-blue-600 hover:bg-blue-700">
                     Get a Consultation
                   </Button>
+                  <Link 
+                    to="/admin"
+                    className="w-full py-2 flex justify-center items-center gap-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    <UserRound size={18} />
+                    <span>Admin Dashboard</span>
+                  </Link>
                 </div>
               </nav>
             </div>

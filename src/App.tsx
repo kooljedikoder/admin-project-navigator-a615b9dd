@@ -21,6 +21,16 @@ import BlogAdmin from "./pages/admin/BlogAdmin";
 import MediaLibrary from "./pages/admin/MediaLibrary";
 import UsersAdmin from "./pages/admin/UsersAdmin";
 import SettingsAdmin from "./pages/admin/SettingsAdmin";
+import Beginning from "./pages/site/Beginning";
+import WhoWeAre from "./pages/site/WhoWeAre";
+import WhatWeDo from "./pages/site/WhatWeDo";
+import WhoWeServe from "./pages/site/WhoWeServe";
+import OurProcess from "./pages/site/OurProcess";
+import OurApproach from "./pages/site/OurApproach";
+import Contact from "./pages/site/Contact";
+import Blog from "./pages/site/Blog";
+import CoreValues from "./pages/site/CoreValues";
+import MAFoundation from "./pages/site/MAFoundation";
 
 const queryClient = new QueryClient();
 
@@ -31,7 +41,20 @@ const App = () => (
         <Toaster />
         <Sonner />
         <Routes>
+          {/* Main Site Routes */}
           <Route path="/" element={<Index />} />
+          <Route path="/beginning" element={<Beginning />} />
+          <Route path="/who-we-are" element={<WhoWeAre />} />
+          <Route path="/who-we-are/core-values" element={<CoreValues />} />
+          <Route path="/what-we-do" element={<WhatWeDo />} />
+          <Route path="/who-we-serve" element={<WhoWeServe />} />
+          <Route path="/our-process" element={<OurProcess />} />
+          <Route path="/our-approach" element={<OurApproach />} />
+          <Route path="/contact" element={<Contact />} />
+          <Route path="/blog" element={<Blog />} />
+          <Route path="/ma-foundation" element={<MAFoundation />} />
+          
+          {/* Admin Routes */}
           <Route path="/admin" element={<AdminDashboard />} />
           <Route path="/admin/projects" element={<ProjectsAdmin />} />
           <Route path="/admin/hero" element={<HeroAdmin />} />
@@ -46,8 +69,11 @@ const App = () => (
           <Route path="/admin/media" element={<MediaLibrary />} />
           <Route path="/admin/users" element={<UsersAdmin />} />
           <Route path="/admin/settings" element={<SettingsAdmin />} />
+          
+          {/* Legacy Pages Route */}
           <Route path="/pages/:slug" element={<SitePages />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+          
+          {/* Catch-all Route */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </TooltipProvider>
