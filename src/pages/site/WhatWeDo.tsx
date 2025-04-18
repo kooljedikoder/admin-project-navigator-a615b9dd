@@ -1,9 +1,16 @@
+
 import React from 'react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
-import SectionSideMenu from '@/components/navigation/SectionSideMenu';
+import SectionSideMenu, { SectionLink } from '@/components/navigation/SectionSideMenu';
 
 const WhatWeDo = () => {
+  const sectionLinks: SectionLink[] = [
+    { id: 'retail-design', label: 'Retail & Brand Design' },
+    { id: 'advertising', label: 'Advertising & Brand' },
+    { id: 'web-development', label: 'Web Development' }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <MainNavigation />
@@ -151,7 +158,7 @@ const WhatWeDo = () => {
         </section>
       </main>
       
-      <SectionSideMenu />
+      <SectionSideMenu links={sectionLinks} visible={true} />
       <FooterSection />
     </div>
   );

@@ -1,19 +1,19 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
-interface SectionLink {
+export interface SectionLink {
   id: string;
   label: string;
 }
 
-const SectionSideMenu = () => {
-  const sectionLinks: SectionLink[] = [
-    { id: 'retail-design', label: 'Retail & Brand Design' },
-    { id: 'advertising', label: 'Advertising & Brand' },
-    { id: 'web-development', label: 'Web Development' }
-  ];
+interface SectionSideMenuProps {
+  links: SectionLink[];
+  visible: boolean;
+}
+
+const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
+  if (!visible || links.length === 0) return null;
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -26,7 +26,7 @@ const SectionSideMenu = () => {
     <div className="hidden lg:block fixed right-4 top-1/3 transform -translate-y-1/2 z-40">
       <div className="bg-white/80 backdrop-blur-sm rounded-lg shadow-lg p-4">
         <nav className="space-y-2">
-          {sectionLinks.map((link) => (
+          {links.map((link) => (
             <button
               key={link.id}
               onClick={() => scrollToSection(link.id)}

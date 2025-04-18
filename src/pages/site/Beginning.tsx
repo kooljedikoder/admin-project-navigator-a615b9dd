@@ -3,8 +3,16 @@ import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
+import SectionSideMenu, { SectionLink } from '@/components/navigation/SectionSideMenu';
 
 const Beginning = () => {
+  const sectionLinks: SectionLink[] = [
+    { id: 'our-story', label: 'Our Story' },
+    { id: 'our-vision', label: 'Our Vision' },
+    { id: 'our-mission', label: 'Our Mission' },
+    { id: 'faq', label: 'FAQ' }
+  ];
+
   return (
     <div className="min-h-screen flex flex-col">
       <MainNavigation />
@@ -14,7 +22,7 @@ const Beginning = () => {
           <h1 className="text-4xl font-bold mb-6">In the Beginning</h1>
           
           {/* Our Story Section */}
-          <section id="our-story" className="mb-16">
+          <section id="our-story" className="mb-16 scroll-mt-24">
             <h2 className="text-3xl font-semibold mb-4">Our Story</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -34,7 +42,7 @@ const Beginning = () => {
           </section>
           
           {/* Our Vision Section */}
-          <section id="our-vision" className="mb-16">
+          <section id="our-vision" className="mb-16 scroll-mt-24">
             <h2 className="text-3xl font-semibold mb-4">Our Vision</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -54,7 +62,7 @@ const Beginning = () => {
           </section>
           
           {/* Our Mission Section */}
-          <section id="our-mission" className="mb-16">
+          <section id="our-mission" className="mb-16 scroll-mt-24">
             <h2 className="text-3xl font-semibold mb-4">Our Mission</h2>
             <div className="grid md:grid-cols-2 gap-8">
               <div>
@@ -74,7 +82,7 @@ const Beginning = () => {
           </section>
           
           {/* FAQ Section */}
-          <section id="faq" className="mb-16">
+          <section id="faq" className="mb-16 scroll-mt-24">
             <h2 className="text-3xl font-semibold mb-6">Frequently Asked Questions</h2>
             <div className="space-y-4">
               {[1, 2, 3, 4].map((item) => (
@@ -98,6 +106,7 @@ const Beginning = () => {
         </div>
       </main>
       
+      <SectionSideMenu links={sectionLinks} visible={true} />
       <FooterSection />
     </div>
   );
