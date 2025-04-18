@@ -1,5 +1,5 @@
 
-interface StoryContentItem {
+export interface StoryContentItem {
   title: string;
   content: string;
 }
@@ -44,4 +44,3 @@ export const storyContent: StoryContent = {
     { title: 'Continuous Growth', content: 'Always learning and evolving with the market.' }
   ]
 };
-
