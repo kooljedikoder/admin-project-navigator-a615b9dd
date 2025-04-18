@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Card } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
@@ -37,10 +36,6 @@ const StoryContent: React.FC<StoryContentProps> = ({
         <div className={`grid md:grid-cols-2 gap-12 items-start ${imagePosition === 'right' ? 'flex-row-reverse' : ''}`}>
           {imagePosition === 'left' ? (
             <div>
-              <div className="mb-8">
-                <h4 className="text-xl font-light mb-2">{title}</h4>
-                <p className="text-base font-light text-gray-600">{description}</p>
-              </div>
               <img 
                 src={image} 
                 alt={title} 
@@ -68,10 +63,6 @@ const StoryContent: React.FC<StoryContentProps> = ({
           </div>
           {imagePosition === 'right' ? (
             <div>
-              <div className="mb-8">
-                <h4 className="text-xl font-light mb-2">{title}</h4>
-                <p className="text-base font-light text-gray-600">{description}</p>
-              </div>
               <img 
                 src={image} 
                 alt={title} 
