@@ -45,11 +45,11 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                     className="group flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
                     onClick={onClose}
                   >
-                    <div className="flex-shrink-0 mr-3 text-blue-600">
+                    <div className="flex-shrink-0 mr-3 text-[#7f86dc]">
                       {link.icon}
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1 group-hover:text-blue-600 transition-colors">
+                      <h3 className="font-medium mb-1 group-hover:text-[#7f86dc] transition-colors">
                         {link.label}
                       </h3>
                       <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
@@ -67,11 +67,11 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                     className="group flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
                     onClick={onClose}
                   >
-                    <div className="flex-shrink-0 mr-3 text-blue-600">
+                    <div className="flex-shrink-0 mr-3 text-[#7f86dc]">
                       {link.icon}
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1 group-hover:text-blue-600 transition-colors">
+                      <h3 className="font-medium mb-1 group-hover:text-[#7f86dc] transition-colors">
                         {link.label}
                       </h3>
                       <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
@@ -84,7 +84,7 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
             <div className="text-center">
               <Button
                 onClick={onClose}
-                className="bg-blue-500 hover:bg-blue-600 text-white"
+                className="bg-[#7f86dc] hover:bg-[#7f86dc]/90 text-white"
                 size="lg"
               >
                 Close
@@ -100,7 +100,7 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
               alt="Section Background"
               className="h-full w-full object-cover absolute inset-0"
             />
-            <div className="absolute inset-0 bg-blue-900/10 backdrop-blur-[1px]" />
+            <div className="absolute inset-0 bg-[#7f86dc]/10 backdrop-blur-[1px]" />
           </div>
         </div>
       </DialogContent>
@@ -109,4 +109,3 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
 };
 
 export default NavModal;
-
