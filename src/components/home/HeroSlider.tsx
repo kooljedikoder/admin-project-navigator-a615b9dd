@@ -21,24 +21,24 @@ interface Slide {
 const slides: Slide[] = [
   {
     id: 1,
-    title: "Strategic Brand Development",
-    subtitle: "CREATING MEMORABLE BRAND EXPERIENCES",
-    description: "Comprehensive brand strategies that position your business for success",
-    image: "/photo-1519389950473-47ba0277781c",
+    title: "Transforming Businesses Together",
+    subtitle: "INNOVATIVE SOLUTIONS FOR GROWTH",
+    description: "Comprehensive solutions designed to elevate your business success",
+    image: "/lovable-uploads/bb0b06d1-cfdb-4764-8095-a9cd2003ab75.png",
   },
   {
     id: 2,
     title: "Digital Innovation",
     subtitle: "TRANSFORM YOUR DIGITAL PRESENCE",
     description: "Cutting-edge solutions for modern business challenges",
-    image: "/photo-1605810230434-7631ac76ec81",
+    image: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81",
   },
   {
     id: 3,
     title: "Creative Excellence",
     subtitle: "DESIGNING THE FUTURE",
     description: "Innovative design solutions that make your brand stand out",
-    image: "/photo-1581091226825-a6a2a5aee158",
+    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
   }
 ];
 
