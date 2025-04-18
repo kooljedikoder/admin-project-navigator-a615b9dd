@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import MainNavigation from '@/components/home/MainNavigation';
@@ -19,7 +20,7 @@ const Beginning = () => {
       <div className="flex">
         <SectionSideMenu links={sectionLinks} visible={true} />
         
-        <main className="flex-grow lg:ml-[250px]">
+        <main className="flex-grow">
           <div className="container mx-auto px-4 py-12">
             <h1 className="text-4xl font-bold mb-6">In the Beginning</h1>
             

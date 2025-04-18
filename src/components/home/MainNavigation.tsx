@@ -1,8 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { UserRound, Book, Users, Grid, Handshake, Compass, Star, Phone } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { UserRound } from 'lucide-react';
 import TopInfoBar from '@/components/navigation/TopInfoBar';
 import DesktopNav from '@/components/navigation/DesktopNav';
 import MobileNav from '@/components/navigation/MobileNav';
@@ -25,25 +24,12 @@ const MainNavigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const getMenuIcon = (label: string) => {
-    switch(label) {
-      case 'In the Beginning': return <Book className="mr-2 h-4 w-4" />;
-      case 'Who We Are': return <Users className="mr-2 h-4 w-4" />;
-      case 'What We Do': return <Grid className="mr-2 h-4 w-4" />;
-      case 'When & For Whom': return <Handshake className="mr-2 h-4 w-4" />;
-      case 'Where We Shine': return <Compass className="mr-2 h-4 w-4" />;
-      case 'Why Choose Us': return <Star className="mr-2 h-4 w-4" />;
-      case 'How to Reach Us': return <Phone className="mr-2 h-4 w-4" />;
-      default: return null;
-    }
-  };
-
   return (
     <>
       <TopInfoBar />
       
       <header 
-        className={`sticky top-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 z-50 transition-all duration-300 w-full ${
           isScrolled 
             ? 'bg-[#1704D5] shadow-md py-2' 
             : 'bg-[#1704D5]/90 backdrop-blur-sm py-4'
@@ -64,13 +50,7 @@ const MainNavigation = () => {
             
             <DesktopNav isScrolled={isScrolled} />
             
-            <div className="hidden lg:flex items-center gap-4">
-              <Button 
-                variant="default" 
-                className="bg-white text-[#1704D5] hover:bg-blue-50"
-              >
-                Get a Consultation
-              </Button>
+            <div className="hidden lg:flex items-center">
               <Link 
                 to="/admin"
                 className="p-2 rounded-full hover:bg-white/10 transition-colors text-white"

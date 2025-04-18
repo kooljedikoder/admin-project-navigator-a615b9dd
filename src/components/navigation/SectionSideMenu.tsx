@@ -30,7 +30,7 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
             <button
               key={link.id}
               onClick={() => scrollToSection(link.id)}
-              className="flex items-center gap-2 text-sm font-light text-gray-700 hover:text-[#1704D5] transition-colors w-full text-left py-2 px-3 rounded-md hover:bg-blue-50"
+              className="flex items-center gap-2 text-sm font-light text-gray-700 hover:text-[#1704D5] transition-colors w-full text-left py-2 px-3"
             >
               <ChevronRight className="h-4 w-4" />
               <span>{link.label}</span>
@@ -43,4 +43,3 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
 };
 
 export default SectionSideMenu;
-
