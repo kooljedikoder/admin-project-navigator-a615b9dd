@@ -24,7 +24,7 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
 
   return (
     <div className="hidden lg:block fixed left-0 top-1/3 transform -translate-y-1/2 z-40">
-      <div className="bg-white/80 backdrop-blur-sm rounded-r-lg shadow-lg p-4">
+      <div className="bg-white/80 backdrop-blur-sm rounded-r-lg shadow-lg p-4 w-64">
         <nav className="space-y-2">
           {links.map((link) => (
             <button

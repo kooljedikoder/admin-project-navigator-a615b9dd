@@ -20,7 +20,7 @@ const Beginning = () => {
       <div className="flex">
         <SectionSideMenu links={sectionLinks} visible={true} />
         
-        <main className="flex-grow">
+        <main className="flex-grow pl-64">
           <div className="container mx-auto px-4 py-12">
             <h1 className="text-4xl font-bold mb-6">In the Beginning</h1>
             

@@ -68,7 +68,7 @@ const MainNavigation = () => {
             <div className="hidden lg:flex items-center">
               <Link 
                 to="/admin"
-                className="p-2 rounded-full hover:bg-white/10 transition-colors text-white"
+                className="p-2 text-white hover:text-white/80 transition-colors"
                 aria-label="Admin Dashboard"
               >
                 <UserRound size={24} />
