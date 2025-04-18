@@ -7,8 +7,7 @@ import {
   Facebook, 
   Twitter, 
   Linkedin, 
-  Instagram, 
-  Youtube,
+  Instagram,
   ChevronRight
 } from 'lucide-react';
 
@@ -27,7 +26,7 @@ const FooterSection: React.FC = () => {
               <span className="text-xl font-bold text-white">Moore Advice</span>
             </div>
             <p className="text-blue-200 mb-6">
-              We're a leading consulting firm dedicated to helping businesses achieve sustainable growth through innovative strategies and expert guidance.
+              A 460 degree brand agency delivering comprehensive marketing communication and brand identity development.
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-10 h-10 bg-blue-800 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
@@ -37,10 +36,10 @@ const FooterSection: React.FC = () => {
                 <Twitter size={18} />
               </a>
               <a href="#" className="w-10 h-10 bg-blue-800 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <Linkedin size={18} />
+                <Instagram size={18} />
               </a>
               <a href="#" className="w-10 h-10 bg-blue-800 text-white rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
-                <Instagram size={18} />
+                <Linkedin size={18} />
               </a>
             </div>
           </div>
@@ -49,95 +48,107 @@ const FooterSection: React.FC = () => {
             <h3 className="text-xl font-bold mb-6">Quick Links</h3>
             <ul className="space-y-3">
               <li>
-                <a href="/pages/about-us" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/beginning" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>About Us</span>
+                  <span>The Beginning</span>
                 </a>
               </li>
               <li>
-                <a href="/pages/services" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/who-we-are" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Our Services</span>
+                  <span>Who We Are</span>
                 </a>
               </li>
               <li>
-                <a href="/admin/projects" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/what-we-do" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Case Studies</span>
+                  <span>What We Do</span>
                 </a>
               </li>
               <li>
-                <a href="/blog" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/who-we-serve" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Blog</span>
+                  <span>When & For Whom</span>
                 </a>
               </li>
               <li>
-                <a href="/pages/contact" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/portfolio" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Contact Us</span>
+                  <span>What We Have Done</span>
+                </a>
+              </li>
+              <li>
+                <a href="/contact" className="text-blue-200 hover:text-white flex items-center gap-2">
+                  <ChevronRight size={16} />
+                  <span>When Can We Meet You</span>
                 </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-6">Services</h3>
+            <h3 className="text-xl font-bold mb-6">Our Services</h3>
             <ul className="space-y-3">
               <li>
-                <a href="/pages/services" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/services" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Business Consulting</span>
+                  <span>Retail & Brand Space Design</span>
                 </a>
               </li>
               <li>
-                <a href="/pages/services" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/services" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Digital Marketing</span>
+                  <span>Advertising & Brand Development</span>
                 </a>
               </li>
               <li>
-                <a href="/pages/services" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/services" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Web Development</span>
+                  <span>Websites & Apps Development</span>
                 </a>
               </li>
               <li>
-                <a href="/pages/services" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/services" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Workforce Solutions</span>
+                  <span>Digital Signage & OOH</span>
                 </a>
               </li>
               <li>
-                <a href="/pages/services" className="text-blue-200 hover:text-white flex items-center gap-2">
+                <a href="/services" className="text-blue-200 hover:text-white flex items-center gap-2">
                   <ChevronRight size={16} />
-                  <span>Financial Advisory</span>
+                  <span>Project Management</span>
+                </a>
+              </li>
+              <li>
+                <a href="/services" className="text-blue-200 hover:text-white flex items-center gap-2">
+                  <ChevronRight size={16} />
+                  <span>A.I. & Brand Transformation</span>
                 </a>
               </li>
             </ul>
           </div>
           
           <div>
-            <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+            <h3 className="text-xl font-bold mb-6">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex gap-3">
                 <MapPin size={20} className="text-blue-300 flex-shrink-0 mt-1" />
                 <span className="text-blue-200">
-                  1234 Business Avenue<br />
-                  Suite 567<br />
-                  New York, NY 10001
+                  1b Emmanuel Street<br />
+                  Maryland, Ikeja<br />
+                  Lagos, Nigeria
                 </span>
               </li>
               <li className="flex gap-3">
                 <Phone size={20} className="text-blue-300 flex-shrink-0" />
-                <a href="tel:+12345678900" className="text-blue-200 hover:text-white">
-                  +1 (234) 567-8900
+                <a href="tel:+2348035354000" className="text-blue-200 hover:text-white">
+                  +234 803 535 4000
                 </a>
               </li>
               <li className="flex gap-3">
                 <Mail size={20} className="text-blue-300 flex-shrink-0" />
-                <a href="mailto:info@example.com" className="text-blue-200 hover:text-white">
-                  info@example.com
+                <a href="mailto:info@mooreadvice.com" className="text-blue-200 hover:text-white">
+                  info@mooreadvice.com
                 </a>
               </li>
             </ul>

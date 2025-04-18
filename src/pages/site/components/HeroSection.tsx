@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 interface HeroSectionProps {
@@ -12,11 +11,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle, backgroundIm
     <div className="relative">
       <div className="absolute inset-0 z-0">
         <img 
-          src="https://images.unsplash.com/photo-1433086966358-54859d0ed716"
+          src="https://images.unsplash.com/photo-1496307653780-42ee777d4833"
           alt={title} 
           className="w-full h-[400px] object-cover"
         />
-        <div className="absolute inset-0 bg-[#1704D5]/40 backdrop-blur-[2px]"></div>
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-[2px]"></div>
       </div>
       <div className="relative z-10 flex flex-col items-center justify-center h-[400px]">
         <div className="container mx-auto px-4 text-center">
