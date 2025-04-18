@@ -31,7 +31,7 @@ const FAQSection: React.FC<FAQSectionProps> = ({ items, titleColor = '#1a1db0' }
           <Accordion type="single" collapsible className="w-full border-0">
             {items.map((item, index) => (
               <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200">
-                <AccordionTrigger className="text-left font-light">
+                <AccordionTrigger className="text-left font-light hover:text-[#1A1DB0] hover:no-underline">
                   {item.question}
                 </AccordionTrigger>
                 <AccordionContent className="font-light">
