@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserRound, Book, Users, Grid, Handshake, Compass, Star, Phone } from 'lucide-react';
@@ -45,8 +44,8 @@ const MainNavigation = () => {
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 ${
           isScrolled 
-            ? 'bg-white shadow-md py-2' 
-            : 'bg-transparent py-4'
+            ? 'bg-[#1704D5] shadow-md py-2' 
+            : 'bg-[#1704D5]/90 backdrop-blur-sm py-4'
         }`}
       >
         <div className="container mx-auto px-4">
@@ -57,7 +56,7 @@ const MainNavigation = () => {
                 alt="Moore Advice Logo" 
                 className="w-10 h-10 object-contain" 
               />
-              <span className={`font-bold text-xl ${isScrolled ? 'text-blue-950' : 'text-white'}`}>
+              <span className="font-light text-xl text-white">
                 Moore Advice
               </span>
             </Link>
@@ -65,14 +64,12 @@ const MainNavigation = () => {
             <DesktopNav isScrolled={isScrolled} />
             
             <div className="hidden lg:flex items-center gap-4">
-              <Button className={`${isScrolled ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-white text-blue-600 hover:bg-blue-50'}`}>
+              <Button className="bg-white text-[#1704D5] hover:bg-blue-50">
                 Get a Consultation
               </Button>
               <Link 
                 to="/admin"
-                className={`p-2 rounded-full hover:bg-gray-100 transition-colors ${
-                  isScrolled ? 'text-gray-700' : 'text-white'
-                }`}
+                className="p-2 rounded-full hover:bg-white/10 transition-colors text-white"
                 aria-label="Admin Dashboard"
               >
                 <UserRound size={24} />

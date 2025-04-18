@@ -1,7 +1,7 @@
-
 import React from 'react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
+import SectionSideMenu from '@/components/navigation/SectionSideMenu';
 
 const WhatWeDo = () => {
   return (
@@ -10,10 +10,10 @@ const WhatWeDo = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <div className="bg-blue-900 text-white py-16">
+        <div className="bg-[#1704D5] text-white py-16">
           <div className="container mx-auto px-4">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">What We Do</h1>
-            <p className="text-xl max-w-3xl opacity-90">
+            <h1 className="text-4xl md:text-5xl font-light mb-4">What We Do</h1>
+            <p className="text-xl max-w-3xl opacity-90 font-light">
               Explore our comprehensive range of services designed to transform your brand and business
             </p>
           </div>
@@ -23,8 +23,8 @@ const WhatWeDo = () => {
         <section className="py-16">
           <div className="container mx-auto px-4">
             <div className="text-center mb-16">
-              <h2 className="text-3xl font-semibold mb-4">Our Services</h2>
-              <p className="text-lg max-w-3xl mx-auto text-gray-600">
+              <h2 className="text-3xl font-light mb-4">Our Services</h2>
+              <p className="text-lg max-w-3xl mx-auto text-gray-600 font-light">
                 We offer a wide range of integrated solutions to help businesses grow, innovate, and succeed in today's competitive landscape.
               </p>
             </div>
@@ -151,6 +151,7 @@ const WhatWeDo = () => {
         </section>
       </main>
       
+      <SectionSideMenu />
       <FooterSection />
     </div>
   );
