@@ -6,6 +6,7 @@ import TopInfoBar from '@/components/navigation/TopInfoBar';
 import DesktopNav from '@/components/navigation/DesktopNav';
 import MobileNav from '@/components/navigation/MobileNav';
 import MobileMenuButton from '@/components/navigation/MobileMenuButton';
+import { Book, Users, Grid, Handshake, Compass, Star, Phone } from 'lucide-react';
 
 const MainNavigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -23,6 +24,20 @@ const MainNavigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Re-add the getMenuIcon function that is still being used by MobileNav
+  const getMenuIcon = (label: string) => {
+    switch(label) {
+      case 'In the Beginning': return <Book className="mr-2 h-4 w-4" />;
+      case 'Who We Are': return <Users className="mr-2 h-4 w-4" />;
+      case 'What We Do': return <Grid className="mr-2 h-4 w-4" />;
+      case 'When & For Whom': return <Handshake className="mr-2 h-4 w-4" />;
+      case 'Where We Shine': return <Compass className="mr-2 h-4 w-4" />;
+      case 'Why Choose Us': return <Star className="mr-2 h-4 w-4" />;
+      case 'How to Reach Us': return <Phone className="mr-2 h-4 w-4" />;
+      default: return null;
+    }
+  };
 
   return (
     <>
