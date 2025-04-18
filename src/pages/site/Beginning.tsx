@@ -96,13 +96,13 @@ const Beginning = () => {
                 stepNumber={1}
                 title="Our Founding Story"
                 description="Founded in 2010, our journey began with a bold vision to transform how businesses approach digital solutions."
-                image="https://images.unsplash.com/photo-1552664730-d307ca884978"
+                image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
                 imagePosition="left"
               >
-                <Card className="p-6">
-                  <Accordion type="single" collapsible>
+                <Card className="p-6 shadow-lg border-0">
+                  <Accordion type="single" collapsible className="border-0">
                     {storyContent.foundingStory.map((item, index) => (
-                      <AccordionItem key={index} value={`founding-${index}`}>
+                      <AccordionItem key={index} value={`founding-${index}`} className="border-b border-gray-200">
                         <AccordionTrigger className="text-left font-light">
                           {item.title}
                         </AccordionTrigger>
@@ -120,13 +120,13 @@ const Beginning = () => {
                 stepNumber={2}
                 title="Our Heritage"
                 description="Built on decades of collective experience, our heritage combines traditional business wisdom with cutting-edge innovation."
-                image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
+                image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
                 imagePosition="right"
               >
-                <Card className="p-6">
-                  <Accordion type="single" collapsible>
+                <Card className="p-6 shadow-lg border-0">
+                  <Accordion type="single" collapsible className="border-0">
                     {storyContent.heritage.map((item, index) => (
-                      <AccordionItem key={index} value={`heritage-${index}`}>
+                      <AccordionItem key={index} value={`heritage-${index}`} className="border-b border-gray-200">
                         <AccordionTrigger className="text-left font-light">
                           {item.title}
                         </AccordionTrigger>
@@ -144,13 +144,13 @@ const Beginning = () => {
                 stepNumber={3}
                 title="Our Evolution"
                 description="From a traditional consulting firm to a dynamic technology partner, we've continually adapted to meet market demands."
-                image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"
+                image="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
                 imagePosition="left"
               >
-                <Card className="p-6">
-                  <Accordion type="single" collapsible>
+                <Card className="p-6 shadow-lg border-0">
+                  <Accordion type="single" collapsible className="border-0">
                     {storyContent.evolution.map((item, index) => (
-                      <AccordionItem key={index} value={`evolution-${index}`}>
+                      <AccordionItem key={index} value={`evolution-${index}`} className="border-b border-gray-200">
                         <AccordionTrigger className="text-left font-light">
                           {item.title}
                         </AccordionTrigger>
@@ -168,13 +168,13 @@ const Beginning = () => {
                 stepNumber={4}
                 title="Key Milestones"
                 description="Our journey has been marked by significant achievements that have solidified our position as industry leaders."
-                image="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
+                image="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
                 imagePosition="right"
               >
-                <Card className="p-6">
-                  <Accordion type="single" collapsible>
+                <Card className="p-6 shadow-lg border-0">
+                  <Accordion type="single" collapsible className="border-0">
                     {storyContent.milestones.map((item, index) => (
-                      <AccordionItem key={index} value={`milestone-${index}`}>
+                      <AccordionItem key={index} value={`milestone-${index}`} className="border-b border-gray-200">
                         <AccordionTrigger className="text-left font-light">
                           {item.title}
                         </AccordionTrigger>
@@ -192,13 +192,13 @@ const Beginning = () => {
                 stepNumber={5}
                 title="Founding Principles"
                 description="Our core principles have been the driving force behind every decision and innovation."
-                image="https://images.unsplash.com/photo-1517048676732-d65bc937f952"
+                image="https://images.unsplash.com/photo-1486718448742-163732cd1544"
                 imagePosition="left"
               >
-                <Card className="p-6">
-                  <Accordion type="single" collapsible>
+                <Card className="p-6 shadow-lg border-0">
+                  <Accordion type="single" collapsible className="border-0">
                     {storyContent.principles.map((item, index) => (
-                      <AccordionItem key={index} value={`principle-${index}`}>
+                      <AccordionItem key={index} value={`principle-${index}`} className="border-b border-gray-200">
                         <AccordionTrigger className="text-left font-light">
                           {item.title}
                         </AccordionTrigger>
