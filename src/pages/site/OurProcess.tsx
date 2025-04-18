@@ -18,16 +18,16 @@ const OurProcess = () => {
       <div className="relative">
         <div className="absolute inset-0 z-0">
           <img 
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&q=80"
+            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
             alt="Our Process" 
             className="w-full h-[300px] object-cover"
           />
           <div className="absolute inset-0 bg-black/50"></div>
         </div>
-        <div className="relative z-10 py-16">
+        <div className="relative z-10 py-16 flex items-center justify-center text-center h-[300px]">
           <div className="container mx-auto px-4">
             <h1 className="text-4xl md:text-5xl font-light mb-4 text-white">Where We Shine</h1>
-            <p className="text-xl max-w-3xl text-white/90 font-light">
+            <p className="text-xl max-w-3xl mx-auto text-white/90 font-light">
               Our proven process delivers exceptional results every time
             </p>
           </div>
@@ -43,7 +43,7 @@ const OurProcess = () => {
           <div className="container mx-auto px-4">
             <h2 className="text-3xl font-light mb-12 text-center">Our Process</h2>
               
-            <div className="space-y-24 mb-16">
+            <div className="space-y-16 mb-16">
               {/* Step 1 */}
               <div id="consultation" className="relative scroll-mt-24">
                 <div className="flex items-center justify-center absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-blue-600 text-white text-lg font-bold">
