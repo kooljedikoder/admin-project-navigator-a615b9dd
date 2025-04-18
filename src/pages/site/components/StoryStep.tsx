@@ -4,11 +4,12 @@ import React from 'react';
 export interface StoryStepProps {
   id: string;
   stepNumber: number;
-  title: string;
-  description: string;
-  image: string;
-  imagePosition?: 'left' | 'right';
   children?: React.ReactNode;
+  // These props are optional since they're not being used in the actual implementation
+  title?: string;
+  description?: string;
+  image?: string;
+  imagePosition?: 'left' | 'right';
 }
 
 const StoryStep: React.FC<StoryStepProps> = ({
