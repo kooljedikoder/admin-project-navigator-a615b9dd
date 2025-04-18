@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainNavigation from '@/components/home/MainNavigation';
@@ -19,6 +20,30 @@ const Beginning = () => {
     { id: 'key-milestones', label: 'Key Milestones' },
     { id: 'founding-principles', label: 'Founding Principles' },
     { id: 'faq', label: 'FAQ' }
+  ];
+  
+  // Define the faqItems array to pass to the FAQSection component
+  const faqItems = [
+    {
+      question: "When was the company founded?",
+      answer: "Our company was founded in 2010 with a vision to transform how businesses approach digital solutions."
+    },
+    {
+      question: "Who were the original founders?",
+      answer: "The company was established by a team of industry veterans with decades of collective experience in technology and business consulting."
+    },
+    {
+      question: "What was the company's first major project?",
+      answer: "Our first major project was a digital transformation initiative for a Fortune 500 retail company, which set the foundation for our future success."
+    },
+    {
+      question: "How has the company's mission evolved over time?",
+      answer: "While our core values have remained consistent, our mission has evolved to embrace emerging technologies and changing market needs, always staying true to our commitment to innovation and excellence."
+    },
+    {
+      question: "What major milestones shaped the company's growth?",
+      answer: "Key milestones include our international expansion in 2015, achieving industry recognition in 2018, and launching our proprietary technology platform in 2020."
+    }
   ];
 
   return (
