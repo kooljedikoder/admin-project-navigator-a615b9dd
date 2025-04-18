@@ -1,4 +1,3 @@
-
 import React from 'react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
@@ -24,7 +23,7 @@ const Beginning = () => {
       id: 'our-evolution', 
       label: 'Our Evolution',
       url: '/beginning/evolution',
-      description: "See how we've evolved and transformed over the years" // Changed to double quotes
+      description: "See how we've evolved and transformed over the years"
     },
     { 
       id: 'key-milestones', 
