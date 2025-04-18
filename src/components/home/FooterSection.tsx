@@ -18,11 +18,10 @@ const FooterSection: React.FC = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <img 
-                src="/logo.png" 
+                src="/lovable-uploads/698a3c21-f49a-430a-b9b7-c60477a6898c.png" 
                 alt="Moore Advice Logo" 
                 className="w-12 h-12 object-contain" 
               />
-              <span className="text-lg font-bold text-white">Moore Advice</span>
             </div>
             <p className="text-blue-200 text-sm mb-4">
               A 460 degree brand agency delivering comprehensive marketing communication and brand identity development.
