@@ -52,9 +52,13 @@ const MainNavigation = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center gap-2">
-              <img src="/placeholder.svg" alt="Logo" className="w-10 h-10" />
+              <img 
+                src="/logo.png" 
+                alt="Moore Advice Logo" 
+                className="w-10 h-10 object-contain" 
+              />
               <span className={`font-bold text-xl ${isScrolled ? 'text-blue-950' : 'text-white'}`}>
-                Your Business
+                Moore Advice
               </span>
             </Link>
             

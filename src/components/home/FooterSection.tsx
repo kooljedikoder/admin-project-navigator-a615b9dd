@@ -18,7 +18,14 @@ const FooterSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
-            <h3 className="text-xl font-bold mb-6">About Us</h3>
+            <div className="flex items-center gap-2 mb-6">
+              <img 
+                src="/logo.png" 
+                alt="Moore Advice Logo" 
+                className="w-12 h-12 object-contain" 
+              />
+              <span className="text-xl font-bold text-white">Moore Advice</span>
+            </div>
             <p className="text-blue-200 mb-6">
               We're a leading consulting firm dedicated to helping businesses achieve sustainable growth through innovative strategies and expert guidance.
             </p>
@@ -139,7 +146,7 @@ const FooterSection: React.FC = () => {
         
         <div className="pt-8 border-t border-blue-900 text-center">
           <p className="text-blue-300 text-sm">
-            &copy; {new Date().getFullYear()} Your Business Name. All rights reserved. 
+            &copy; {new Date().getFullYear()} Moore Advice. All rights reserved. 
           </p>
         </div>
       </div>
