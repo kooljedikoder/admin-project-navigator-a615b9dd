@@ -16,8 +16,6 @@ const StoryStep: React.FC<StoryStepProps> = ({
   stepNumber, 
   title, 
   description, 
-  image,
-  imagePosition = 'left',
   children
 }) => {
   return (
@@ -27,33 +25,11 @@ const StoryStep: React.FC<StoryStepProps> = ({
           {stepNumber}
         </div>
       </div>
-      <div className="w-full mb-4">
-        <h3 className="text-2xl font-light mb-2 text-center w-full">{title}</h3>
-        <p className="text-lg mb-6 font-light text-center w-full">{description}</p>
+      <div className="w-full mb-8">
+        <h3 className="text-2xl font-light mb-2 text-center">{title}</h3>
+        <p className="text-lg mb-6 font-light text-center max-w-3xl mx-auto">{description}</p>
       </div>
-      <div className={`grid md:grid-cols-2 gap-12 items-start ${imagePosition === 'right' ? 'flex-row-reverse' : ''}`}>
-        {imagePosition === 'left' ? (
-          <div>
-            <img 
-              src={image} 
-              alt={title} 
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
-            />
-          </div>
-        ) : null}
-        <div className={`${imagePosition === 'right' ? 'order-1' : ''}`}>
-          {children}
-        </div>
-        {imagePosition === 'right' ? (
-          <div className="order-2">
-            <img 
-              src={image} 
-              alt={title} 
-              className="rounded-lg shadow-lg w-full h-64 object-cover"
-            />
-          </div>
-        ) : null}
-      </div>
+      {children}
     </div>
   );
 };
