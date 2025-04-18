@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainNavigation from '@/components/home/MainNavigation';
@@ -131,4 +130,3 @@ const Beginning = () => {
 };
 
 export default Beginning;
-
