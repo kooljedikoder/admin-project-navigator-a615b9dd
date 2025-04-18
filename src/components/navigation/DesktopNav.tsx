@@ -32,7 +32,15 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
             <NavigationMenuItem key={item.id}>
               {item.children.length > 0 ? (
                 <>
-                  <NavigationMenuTrigger className={`${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`}>
+                  <NavigationMenuTrigger 
+                    className={`
+                      ${isScrolled ? 'text-gray-800' : 'text-white'} 
+                      hover:text-blue-600 
+                      bg-transparent 
+                      hover:bg-transparent
+                      focus:bg-transparent
+                    `}
+                  >
                     <div className="flex items-center">
                       {getMenuIcon(item.label)}
                       {item.label}
@@ -45,7 +53,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                           <NavigationMenuLink asChild>
                             <Link
                               to={child.url}
-                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                              className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-transparent hover:text-blue-600"
                             >
                               <div className="text-sm font-medium leading-none">{child.label}</div>
                             </Link>
@@ -60,7 +68,13 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
                   to={item.url} 
                   className={cn(
                     navigationMenuTriggerStyle(),
-                    `${isScrolled ? 'text-gray-800' : 'text-white'} hover:text-blue-600`,
+                    `
+                      ${isScrolled ? 'text-gray-800' : 'text-white'} 
+                      hover:text-blue-600 
+                      bg-transparent 
+                      hover:bg-transparent
+                      focus:bg-transparent
+                    `,
                   )}
                 >
                   <div className="flex items-center">

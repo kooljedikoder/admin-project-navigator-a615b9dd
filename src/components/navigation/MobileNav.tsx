@@ -1,9 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ChevronDown } from 'lucide-react';
-import { Book, Users, Grid, Handshake, Compass, Star, Phone, UserRound } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ChevronDown, UserRound } from 'lucide-react';
 import { initialMenuItems } from '@/data/menuData';
 
 interface MobileNavProps {
@@ -16,14 +14,14 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
   if (!isOpen) return null;
 
   return (
-    <div className="lg:hidden bg-white border-t">
+    <div className="lg:hidden bg-transparent border-t-0">
       <div className="container mx-auto px-4 py-4">
         <nav className="flex flex-col gap-4">
           {initialMenuItems.map((item) => (
             <div key={item.id}>
               {item.children.length > 0 ? (
                 <details className="group">
-                  <summary className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200 flex justify-between items-center cursor-pointer">
+                  <summary className="font-light text-gray-800 hover:text-blue-600 py-2 border-b-0 flex justify-between items-center cursor-pointer">
                     <div className="flex items-center gap-2">
                       {getMenuIcon(item.label)}
                       <span>{item.label}</span>
@@ -35,7 +33,7 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
                       <Link 
                         key={child.id}
                         to={child.url} 
-                        className="block text-gray-600 hover:text-blue-600 py-1"
+                        className="block text-gray-600 hover:text-blue-600 py-1 bg-transparent"
                         onClick={onClose}
                       >
                         {child.label}
@@ -46,7 +44,7 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
               ) : (
                 <Link 
                   to={item.url} 
-                  className="font-medium text-gray-800 hover:text-blue-600 py-2 border-b border-gray-200 flex items-center gap-2"
+                  className="font-light text-gray-800 hover:text-blue-600 py-2 border-b-0 flex items-center gap-2 bg-transparent"
                   onClick={onClose}
                 >
                   {getMenuIcon(item.label)}
@@ -57,15 +55,9 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
           ))}
           
           <div className="mt-4 flex flex-col gap-4">
-            <Button 
-              variant="default" 
-              className="w-full bg-[#1704D5] text-white hover:bg-[#1704D5]/90"
-            >
-              Get a Consultation
-            </Button>
             <Link 
               to="/admin"
-              className="w-full py-2 flex justify-center items-center gap-2 border border-gray-300 rounded-md text-gray-700 hover:bg-gray-50"
+              className="w-full py-2 flex justify-center items-center gap-2 border-0 rounded-md text-gray-700 hover:text-blue-600 bg-transparent"
               onClick={onClose}
             >
               <UserRound size={18} />
