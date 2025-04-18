@@ -26,39 +26,43 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, backgroundVid
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-4xl p-0 overflow-hidden">
-        <div className="relative">
+        <div className="relative min-h-[400px]">
           {backgroundVideo && (
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="absolute inset-0 w-full h-full object-cover opacity-20"
-            >
-              <source src={backgroundVideo} type="video/mp4" />
-            </video>
+            <>
+              <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                <source src={backgroundVideo} type="video/mp4" />
+              </video>
+              {/* Dark overlay for better text visibility */}
+              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
+            </>
           )}
           
           <div className="relative z-10 p-8">
-            <h2 className="text-2xl font-bold mb-4">{title}</h2>
-            <p className="text-gray-600 mb-8">{description}</p>
+            <h2 className="text-3xl font-semibold mb-4 text-white">{title}</h2>
+            <p className="text-gray-200 mb-8 text-lg">{description}</p>
             
             <div className="grid md:grid-cols-2 gap-6 mb-8">
               {subLinks.map((link) => (
                 <Link
                   key={link.id}
                   to={link.url}
-                  className="group flex items-start p-4 rounded-lg hover:bg-blue-50 transition-colors"
+                  className="group flex items-start p-4 rounded-lg bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm"
                   onClick={onClose}
                 >
-                  <div className="flex-shrink-0 mr-4 text-blue-600">
+                  <div className="flex-shrink-0 mr-4 text-blue-300">
                     {link.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1 group-hover:text-blue-600 transition-colors">
+                    <h3 className="font-semibold mb-1 text-white group-hover:text-blue-200 transition-colors">
                       {link.label}
                     </h3>
-                    <p className="text-sm text-gray-600">{link.description}</p>
+                    <p className="text-sm text-gray-300">{link.description}</p>
                   </div>
                 </Link>
               ))}
@@ -67,7 +71,7 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, backgroundVid
             <div className="text-center">
               <Button
                 onClick={onClose}
-                className="animate-pulse hover:animate-none"
+                className="bg-blue-500 hover:bg-blue-600 text-white animate-pulse hover:animate-none"
                 size="lg"
               >
                 Go to Section
