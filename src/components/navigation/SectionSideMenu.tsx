@@ -18,7 +18,7 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const bannerHeight = 400; // Adjusted to match new banner height
+      const bannerHeight = 400; // Adjusted to match banner height
       setIsSticky(window.scrollY > bannerHeight);
       
       // Update active section based on scroll position
@@ -27,7 +27,7 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
 
       sections.forEach((section, index) => {
         if (section) {
-          const offset = isSticky ? 100 : 200; // Reduced offset to move menu up
+          const offset = isSticky ? 100 : 150; // Reduced offset to move menu closer
           const sectionTop = section.offsetTop - offset;
           const sectionBottom = sectionTop + section.offsetHeight;
 
@@ -45,7 +45,7 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
   if (!visible || links.length === 0) return null;
 
   return (
-    <div className={`hidden lg:block ${isSticky ? 'fixed top-20' : 'absolute top-[300px]'} left-0 z-40`}>
+    <div className={`hidden lg:block ${isSticky ? 'fixed top-20' : 'absolute top-[250px]'} left-0 z-40`}>
       <div className="bg-white/80 backdrop-blur-sm rounded-r-2xl p-6 w-64">
         <nav className="space-y-2">
           {links.map((link) => (
@@ -54,7 +54,7 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
               onClick={() => {
                 const element = document.getElementById(link.id);
                 if (element) {
-                  const offset = isSticky ? 100 : 200; // Consistent offset
+                  const offset = isSticky ? 100 : 150; // Consistent offset
                   const elementPosition = element.getBoundingClientRect().top;
                   const offsetPosition = elementPosition + window.pageYOffset - offset;
                   window.scrollTo({
