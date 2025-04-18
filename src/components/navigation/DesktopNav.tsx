@@ -38,7 +38,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
           label: 'Our Evolution',
           url: '/beginning#our-evolution',
           icon: <Rocket size={24} />,
-          description: 'How we've grown and adapted over time'
+          description: 'How we\'ve grown and adapted over time'
         },
         {
           id: 'key-milestones',
