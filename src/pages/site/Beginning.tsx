@@ -13,31 +13,12 @@ import { ArrowRight } from 'lucide-react';
 
 const Beginning = () => {
   const sectionLinks: SectionLink[] = [
-    { id: 'our-story', label: 'Our Founding Story' },
+    { id: 'our-story', label: 'Our Story' },
     { id: 'our-heritage', label: 'Our Heritage' },
     { id: 'our-evolution', label: 'Our Evolution' },
     { id: 'key-milestones', label: 'Key Milestones' },
     { id: 'founding-principles', label: 'Founding Principles' },
     { id: 'faq', label: 'FAQ' }
-  ];
-
-  const faqItems = [
-    {
-      question: 'What inspired our founding?',
-      answer: 'Our company was founded on the belief that businesses deserve technology solutions that truly understand their unique challenges. The founders saw a gap in the market for personalized, innovative approaches that could adapt to rapidly changing business environments.'
-    },
-    {
-      question: 'How do we stay innovative?',
-      answer: 'Innovation is built into our DNA through continuous learning, dedicated research and development teams, regular hackathons, and partnerships with academic institutions. We also encourage all team members to dedicate time to exploring new technologies and methodologies.'
-    },
-    {
-      question: 'What sets us apart from competitors?',
-      answer: 'Our unique blend of industry expertise, technological innovation, and customer-centric approach distinguishes us from competitors. We don\'t just implement solutions - we partner with clients to understand their business goals and create tailored strategies that deliver measurable results.'
-    },
-    {
-      question: 'How do we select and support our clients?',
-      answer: 'We carefully select clients whose values align with ours and where we believe we can make a significant impact. Our support extends beyond project completion with ongoing maintenance, training, strategic consulting, and 24/7 technical assistance to ensure continued success.'
-    }
   ];
 
   return (
@@ -47,7 +28,7 @@ const Beginning = () => {
       <HeroSection 
         title="Where It All Began" 
         subtitle="Our journey from humble beginnings to industry leadership"
-        backgroundImage="https://images.unsplash.com/photo-1517245386807-bb43f82c33c5"
+        backgroundImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
       />
       
       <div className="relative bg-white">
@@ -63,7 +44,7 @@ const Beginning = () => {
                 stepNumber={1}
                 title="Our Founding Story"
                 description="Founded in 2010, our journey began with a bold vision to transform how businesses approach digital solutions."
-                image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
+                image="https://images.unsplash.com/photo-1486718448742-163732cd1544"
                 imagePosition="left"
                 items={storyContent.foundingStory}
               />

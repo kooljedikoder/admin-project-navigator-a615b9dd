@@ -12,16 +12,16 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle, backgroundIm
     <div className="relative">
       <div className="absolute inset-0 z-0">
         <img 
-          src={backgroundImage}
+          src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
           alt={title} 
-          className="w-full h-[300px] object-cover"
+          className="w-full h-[400px] object-cover"
         />
-        <div className="absolute inset-0 bg-black/50"></div>
+        <div className="absolute inset-0 bg-[#1704D5]/40 backdrop-blur-[2px]"></div>
       </div>
-      <div className="relative z-10 py-16">
-        <div className="container mx-auto px-4">
-          <h1 className="text-4xl md:text-5xl font-light mb-4 text-white">{title}</h1>
-          <p className="text-xl max-w-3xl text-white/90 font-light">
+      <div className="relative z-10 flex flex-col items-center justify-center h-[400px]">
+        <div className="container mx-auto px-4 text-center">
+          <h1 className="text-5xl md:text-6xl font-light mb-6 text-white">{title}</h1>
+          <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/90 font-light">
             {subtitle}
           </p>
         </div>
