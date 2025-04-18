@@ -34,7 +34,7 @@ const MainNavigation = () => {
       >
         <div className="container mx-auto px-0 lg:px-4">
           <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center">
+            <Link to="/" className="flex items-center m-0 p-0">
               <img 
                 src="/lovable-uploads/698a3c21-f49a-430a-b9b7-c60477a6898c.png" 
                 alt="Moore Advice Logo" 
@@ -42,16 +42,18 @@ const MainNavigation = () => {
               />
             </Link>
             
-            <DesktopNav isScrolled={isScrolled} />
-            
-            <div className="hidden lg:flex items-center">
-              <Link 
-                to="/admin"
-                className="p-2 text-white hover:text-white/80 transition-colors"
-                aria-label="Admin Dashboard"
-              >
-                <UserRound size={24} />
-              </Link>
+            <div className="flex items-center space-x-4">
+              <DesktopNav isScrolled={isScrolled} />
+              
+              <div className="hidden lg:flex items-center">
+                <Link 
+                  to="/admin"
+                  className="p-2 text-white hover:text-white/80 transition-colors"
+                  aria-label="Admin Dashboard"
+                >
+                  <UserRound size={24} />
+                </Link>
+              </div>
             </div>
             
             <MobileMenuButton 

@@ -13,7 +13,7 @@ const DesktopNav = ({ isScrolled }: DesktopNavProps) => {
   return (
     <nav className="hidden lg:block">
       <NavigationMenu>
-        <NavigationMenuList>
+        <NavigationMenuList className="justify-end">
           {initialMenuItems.map((item) => (
             <NavigationMenuItem key={item.id}>
               {item.children.length > 0 ? (
