@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { ChevronDown } from 'lucide-react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
 import SectionSideMenu, { SectionLink } from '@/components/navigation/SectionSideMenu';
@@ -44,7 +43,7 @@ const Beginning = () => {
         
         <main className="pl-0 lg:pl-64">
           <div className="container mx-auto px-4 py-12">
-            {/* Our Founding Story Section */}
+            {/* Our Story Section */}
             <section id="our-story" className="mb-16 scroll-mt-24">
               <h2 className="text-3xl font-light mb-4">Our Founding Story</h2>
               <div className="grid md:grid-cols-2 gap-8">
@@ -82,7 +81,7 @@ const Beginning = () => {
                 <div>
                   <p className="text-lg mb-4 font-light">
                     Our heritage is built on decades of collective experience in technology and business transformation. 
-                    We've inherited the best practices from various industries and refined them into our unique approach.
+                    We have inherited the best practices from various industries and refined them into our unique approach.
                   </p>
                   <p className="text-lg font-light">
                     This rich history of innovation and excellence continues to guide our path forward, 
@@ -98,7 +97,7 @@ const Beginning = () => {
               <div className="grid md:grid-cols-2 gap-8">
                 <div>
                   <p className="text-lg mb-4 font-light">
-                    Over the years, we've evolved from a traditional consulting firm into a dynamic technology partner. 
+                    Over the years, we have evolved from a traditional consulting firm into a dynamic technology partner. 
                     Our services have expanded to encompass the full spectrum of digital transformation.
                   </p>
                   <p className="text-lg font-light">
@@ -170,7 +169,7 @@ const Beginning = () => {
             
             {/* FAQ Section */}
             <section id="faq" className="mb-16 scroll-mt-24">
-              <h2 className="text-3xl font-light mb-6">Frequently Asked Questions</h2>
+              <h2 className="text-3xl font-light mb-4">Frequently Asked Questions</h2>
               <div className="space-y-4">
                 {[
                   {
@@ -179,28 +178,17 @@ const Beginning = () => {
                   },
                   {
                     question: "How has the company evolved since its founding?",
-                    answer: "We've grown from a small consulting firm to a global technology partner, expanding our services and geographical presence while maintaining our core values."
+                    answer: "We have grown from a small consulting firm to a global technology partner, expanding our services and geographical presence while maintaining our core values."
                   },
                   {
                     question: "What sets your company apart from competitors?",
                     answer: "Our unique combination of industry expertise, innovative approach, and commitment to client success creates lasting partnerships and exceptional results."
-                  },
-                  {
-                    question: "How do you maintain your founding principles as you grow?",
-                    answer: "We integrate our core values into every aspect of our operations, from hiring to project delivery, ensuring consistency across all teams and locations."
                   }
                 ].map((item, index) => (
-                  <details key={index} className="group border border-gray-200 rounded-lg">
-                    <summary className="flex justify-between items-center font-light cursor-pointer list-none p-4">
-                      <span>{item.question}</span>
-                      <span className="transition group-open:rotate-180">
-                        <ChevronDown size={20} />
-                      </span>
-                    </summary>
-                    <div className="p-4 pt-0">
-                      <p className="text-gray-600 font-light">{item.answer}</p>
-                    </div>
-                  </details>
+                  <div key={index} className="bg-gray-50 p-6 rounded-lg">
+                    <h3 className="text-xl font-semibold mb-2">{item.question}</h3>
+                    <p className="text-lg font-light">{item.answer}</p>
+                  </div>
                 ))}
               </div>
             </section>
