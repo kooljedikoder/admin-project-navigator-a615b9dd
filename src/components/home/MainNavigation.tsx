@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -10,7 +9,8 @@ import {
   MapPin, 
   Facebook, 
   Twitter, 
-  Linkedin 
+  Linkedin,
+  UserRound 
 } from 'lucide-react';
 import {
   DropdownMenu,
@@ -24,7 +24,6 @@ const MainNavigation: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   
-  // Monitor scroll position to change navbar style
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -170,11 +169,20 @@ const MainNavigation: React.FC = () => {
               </Link>
             </nav>
             
-            {/* CTA Button */}
-            <div className="hidden lg:block">
+            {/* CTA and Admin Button */}
+            <div className="hidden lg:flex items-center gap-4">
               <Button className={`${isScrolled ? 'bg-blue-600 hover:bg-blue-700 text-white' : 'bg-white text-blue-600 hover:bg-blue-50'}`}>
                 Get a Consultation
               </Button>
+              <Link 
+                to="/admin"
+                className={`p-2 rounded-full hover:bg-gray-100 transition-colors ${
+                  isScrolled ? 'text-gray-700' : 'text-white'
+                }`}
+                aria-label="Admin Dashboard"
+              >
+                <UserRound size={24} />
+              </Link>
             </div>
             
             {/* Mobile Menu Button */}

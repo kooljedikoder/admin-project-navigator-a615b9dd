@@ -58,6 +58,17 @@ export default function VideoHeroSlider() {
     carouselApi.on("select", () => {
       setCurrentSlide(carouselApi.selectedScrollSnap());
     });
+
+    // Setup autoplay
+    const autoplayInterval = setInterval(() => {
+      if (carouselApi.canScrollNext()) {
+        carouselApi.scrollNext();
+      } else {
+        carouselApi.scrollTo(0);
+      }
+    }, 5000); // Change slide every 5 seconds
+
+    return () => clearInterval(autoplayInterval);
   }, [carouselApi]);
 
   return (
