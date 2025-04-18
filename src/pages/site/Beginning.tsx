@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainNavigation from '@/components/home/MainNavigation';
@@ -9,8 +8,6 @@ import ImpactStats from './components/ImpactStats';
 import StoryContent from './components/StoryContent';
 import FAQSection from './components/FAQSection';
 import { storyContent } from './data/storyContent';
-import { Button } from '@/components/ui/button';
-import { ArrowRight } from 'lucide-react';
 
 const Beginning = () => {
   const sectionLinks: SectionLink[] = [
@@ -22,7 +19,6 @@ const Beginning = () => {
     { id: 'faq', label: 'FAQ' }
   ];
   
-  // Define the faqItems array to pass to the FAQSection component
   const faqItems = [
     {
       question: "When was the company founded?",
@@ -53,7 +49,7 @@ const Beginning = () => {
       <HeroSection 
         title="Where It All Began" 
         subtitle="Our journey from humble beginnings to industry leadership"
-        backgroundImage="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+        backgroundImage="https://images.unsplash.com/photo-1449824913935-59a10b8d2000"
       />
       
       <div className="relative bg-white">
@@ -61,9 +57,7 @@ const Beginning = () => {
           
         <section className="py-16 pl-0 lg:pl-64">
           <div className="container mx-auto px-4">
-            <h2 className="text-3xl font-light mb-12 text-center">Our Story</h2>
-            
-            <div className="space-y-24 mb-16">
+            <div className="space-y-24">
               <StoryContent
                 id="our-story"
                 stepNumber={1}
