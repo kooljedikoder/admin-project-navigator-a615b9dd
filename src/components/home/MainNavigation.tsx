@@ -28,17 +28,17 @@ const MainNavigation = () => {
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 w-full ${
           isScrolled 
-            ? 'bg-[#1a1db0]/80 shadow-md py-2 backdrop-blur-sm' 
-            : 'bg-[#1a1db0] py-0'
+            ? 'bg-[#1a1db0]/80 shadow-md backdrop-blur-sm' 
+            : 'bg-[#1a1db0]'
         }`}
       >
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-0 lg:px-4">
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center">
               <img 
                 src="/lovable-uploads/698a3c21-f49a-430a-b9b7-c60477a6898c.png" 
                 alt="Moore Advice Logo" 
-                className="h-16 w-auto object-contain" 
+                className="h-[64px] w-auto object-contain" 
               />
             </Link>
             

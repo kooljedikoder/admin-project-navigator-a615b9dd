@@ -16,11 +16,11 @@ const FooterSection: React.FC = () => {
       <div className="container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-10">
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center mb-4">
               <img 
                 src="/lovable-uploads/698a3c21-f49a-430a-b9b7-c60477a6898c.png" 
                 alt="Moore Advice Logo" 
-                className="w-12 h-12 object-contain" 
+                className="h-[64px] w-auto object-contain" 
               />
             </div>
             <p className="text-blue-200 text-sm mb-4">
