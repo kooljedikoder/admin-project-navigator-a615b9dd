@@ -1,3 +1,4 @@
+
 import React from 'react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
@@ -40,10 +41,10 @@ const Beginning = () => {
                 title="Our Founding Story"
                 description="Founded in 2010, our journey began with a vision to transform how businesses approach digital solutions. Starting with just three passionate individuals, we set out to create meaningful change in the industry."
                 listItems={[
-                  'Initial vision and mission',
-                  'First team members',
-                  'Early challenges',
-                  'First client success'
+                  'Initial vision and mission establishment',
+                  'First team of innovators and dreamers',
+                  'Overcoming early market challenges',
+                  'First major client success story'
                 ]}
                 image="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
               />
@@ -52,12 +53,12 @@ const Beginning = () => {
                 id="our-heritage"
                 stepNumber={2}
                 title="Our Heritage"
-                description="Our heritage is built on decades of collective experience in technology and business transformation. We have inherited the best practices from various industries and refined them into our unique approach."
+                description="Built on decades of collective experience, our heritage combines traditional business wisdom with cutting-edge innovation. We've refined best practices from various industries into our unique methodology."
                 listItems={[
-                  'Industry expertise',
-                  'Best practices',
-                  'Innovation history',
-                  'Legacy of excellence'
+                  'Deep industry expertise across sectors',
+                  'Time-tested best practices',
+                  'Innovation-driven approach',
+                  'Legacy of excellence and trust'
                 ]}
                 image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
                 imagePosition="right"
@@ -67,12 +68,12 @@ const Beginning = () => {
                 id="our-evolution"
                 stepNumber={3}
                 title="Our Evolution"
-                description="Over the years, we have evolved from a traditional consulting firm into a dynamic technology partner. Our services have expanded to encompass the full spectrum of digital transformation."
+                description="From a traditional consulting firm to a dynamic technology partner, we've continuously evolved to meet changing market demands and technological advancements."
                 listItems={[
-                  'Service expansion',
-                  'Technology advancement',
-                  'Market adaptation',
-                  'Growth milestones'
+                  'Expanded service portfolio',
+                  'Technology advancement initiatives',
+                  'Market adaptation strategies',
+                  'Continuous growth milestones'
                 ]}
                 image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c5"
               />
@@ -81,12 +82,12 @@ const Beginning = () => {
                 id="key-milestones"
                 stepNumber={4}
                 title="Key Milestones"
-                description="Over the years, we have achieved significant milestones in our journey."
+                description="Our journey has been marked by significant achievements and transformative moments that have shaped our company's trajectory."
                 listItems={[
-                  '2010: Company founded with initial focus on digital consulting',
-                  '2015: Expanded into international markets',
-                  '2018: Launched innovative AI solutions division',
-                  '2020: Achieved global recognition for digital transformation excellence'
+                  '2010: Company foundation and initial market entry',
+                  '2015: International market expansion',
+                  '2018: Launch of AI solutions division',
+                  '2020: Global recognition for excellence'
                 ]}
                 image="https://images.unsplash.com/photo-1552664730-d307ca884978"
                 imagePosition="right"
@@ -96,12 +97,12 @@ const Beginning = () => {
                 id="founding-principles"
                 stepNumber={5}
                 title="Founding Principles"
-                description="Our founding principles guide our approach to business."
+                description="Our core principles have guided our decisions and actions since day one, shaping our company culture and client relationships."
                 listItems={[
-                  'Innovation',
-                  'Integrity',
-                  'Impact',
-                  'Excellence'
+                  'Unwavering commitment to innovation',
+                  'Absolute integrity in all dealings',
+                  'Measurable impact for clients',
+                  'Pursuit of excellence in delivery'
                 ]}
                 image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
                 imagePosition="right"
@@ -111,11 +112,12 @@ const Beginning = () => {
                 id="faq"
                 stepNumber={6}
                 title="Frequently Asked Questions"
-                description="We have answers to some of the most common questions about our company."
+                description="Get answers to common questions about our company's history, approach, and values."
                 listItems={[
-                  'What inspired the founding of the company?',
-                  'How has the company evolved?',
-                  'What sets us apart?'
+                  'What inspired the founding of Moore Advice?',
+                  'How has the company evolved over the years?',
+                  'What makes our approach unique in the industry?',
+                  'How do we maintain our culture of innovation?'
                 ]}
                 image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
                 imagePosition="right"
