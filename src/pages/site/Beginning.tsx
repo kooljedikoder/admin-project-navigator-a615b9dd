@@ -39,12 +39,12 @@ const Beginning = () => {
                 id="our-story"
                 stepNumber={1}
                 title="Our Founding Story"
-                description="Founded in 2010, our journey began with a vision to transform how businesses approach digital solutions. Starting with just three passionate individuals, we set out to create meaningful change in the industry."
+                description="Founded in 2010, our journey began with a bold vision to transform how businesses approach digital solutions. Starting with just three passionate individuals, we set out to create meaningful change in the industry."
                 listItems={[
                   'Initial vision and mission establishment',
                   'First team of innovators and dreamers',
                   'Overcoming early market challenges',
-                  'First major client success story'
+                  'First major client breakthrough'
                 ]}
                 image="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
               />
@@ -53,12 +53,12 @@ const Beginning = () => {
                 id="our-heritage"
                 stepNumber={2}
                 title="Our Heritage"
-                description="Built on decades of collective experience, our heritage combines traditional business wisdom with cutting-edge innovation. We've refined best practices from various industries into our unique methodology."
+                description="Built on decades of collective experience, our heritage combines traditional business wisdom with cutting-edge technological innovation. We've cultivated a unique approach that bridges generations of knowledge."
                 listItems={[
-                  'Deep industry expertise across sectors',
-                  'Time-tested best practices',
-                  'Innovation-driven approach',
-                  'Legacy of excellence and trust'
+                  'Interdisciplinary professional backgrounds',
+                  'Cross-industry expertise',
+                  'Commitment to continuous learning',
+                  'Preserving core values while embracing change'
                 ]}
                 image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
                 imagePosition="right"
@@ -68,12 +68,12 @@ const Beginning = () => {
                 id="our-evolution"
                 stepNumber={3}
                 title="Our Evolution"
-                description="From a traditional consulting firm to a dynamic technology partner, we've continuously evolved to meet changing market demands and technological advancements."
+                description="From a traditional consulting firm to a dynamic technology partner, we've continually adapted to meet the rapidly changing market demands and technological advancements."
                 listItems={[
-                  'Expanded service portfolio',
-                  'Technology advancement initiatives',
-                  'Market adaptation strategies',
-                  'Continuous growth milestones'
+                  'Expanding service portfolio',
+                  'Investment in emerging technologies',
+                  'Adapting to global market shifts',
+                  'Building agile, forward-thinking teams'
                 ]}
                 image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c5"
               />
@@ -82,12 +82,12 @@ const Beginning = () => {
                 id="key-milestones"
                 stepNumber={4}
                 title="Key Milestones"
-                description="Our journey has been marked by significant achievements and transformative moments that have shaped our company's trajectory."
+                description="Our journey has been marked by significant achievements that have solidified our position as industry leaders and innovators."
                 listItems={[
-                  '2010: Company foundation and initial market entry',
-                  '2015: International market expansion',
-                  '2018: Launch of AI solutions division',
-                  '2020: Global recognition for excellence'
+                  '2010: Company foundation',
+                  '2015: International expansion',
+                  '2018: AI and digital transformation division launch',
+                  '2022: Global innovation award'
                 ]}
                 image="https://images.unsplash.com/photo-1552664730-d307ca884978"
                 imagePosition="right"
@@ -97,36 +97,35 @@ const Beginning = () => {
                 id="founding-principles"
                 stepNumber={5}
                 title="Founding Principles"
-                description="Our core principles have guided our decisions and actions since day one, shaping our company culture and client relationships."
+                description="Our core principles have been the driving force behind every decision, strategy, and innovation since our inception."
                 listItems={[
-                  'Unwavering commitment to innovation',
-                  'Absolute integrity in all dealings',
-                  'Measurable impact for clients',
-                  'Pursuit of excellence in delivery'
+                  'Customer-centric approach',
+                  'Technological innovation',
+                  'Ethical business practices',
+                  'Continuous improvement'
                 ]}
-                image="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d"
-                imagePosition="right"
+                image="https://images.unsplash.com/photo-1486312338219-25f4aba1f72f"
               />
               
               <StoryStep 
                 id="faq"
                 stepNumber={6}
                 title="Frequently Asked Questions"
-                description="Get answers to common questions about our company's history, approach, and values."
+                description="Explore common queries about our company's history, mission, and approach to helping businesses succeed."
                 listItems={[
-                  'What inspired the founding of Moore Advice?',
-                  'How has the company evolved over the years?',
-                  'What makes our approach unique in the industry?',
-                  'How do we maintain our culture of innovation?'
+                  'What inspired our founding?',
+                  'How do we stay innovative?',
+                  'What sets us apart from competitors?',
+                  'How do we select and support our clients?'
                 ]}
-                image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
+                image="https://images.unsplash.com/photo-1488590528505-98d2b5ade38b"
                 imagePosition="right"
               />
             </div>
               
             <ImpactStats 
               title="Our Impact"
-              description="Over the years, our journey has created lasting impact across industries and organizations."
+              description="Our commitment to excellence and innovation has driven tangible results across industries and organizations."
               stats={[
                 { value: '100+', label: 'Global Clients' },
                 { value: '15+', label: 'Years Experience' },
@@ -144,3 +143,4 @@ const Beginning = () => {
 };
 
 export default Beginning;
+
