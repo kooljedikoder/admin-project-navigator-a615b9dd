@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -27,20 +28,20 @@ const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats, ti
               className="rounded-lg shadow-lg w-full h-[400px] object-cover"
             />
           </div>
-          <div className="md:col-span-2">
+          <div className="md:col-span-2 text-center">
             <h3 className={`text-3xl font-bold mb-4 text-[${titleColor}]`}>{title}</h3>
-            <p className="text-lg max-w-2xl mb-8 text-gray-600">
+            <p className="text-lg max-w-2xl mb-8 text-gray-600 mx-auto">
               {description}
             </p>
-            <div className="grid md:grid-cols-4 gap-8 mb-8">
+            <div className="grid md:grid-cols-4 gap-8 mb-8 text-center">
               {stats.map((stat, index) => (
-                <div key={index} className="text-center">
+                <div key={index}>
                   <div className={`text-4xl font-bold mb-2 text-[${titleColor}]`}>{stat.value}</div>
                   <div className="text-gray-600">{stat.label}</div>
                 </div>
               ))}
             </div>
-            <div className="flex justify-start">
+            <div className="flex justify-center">
               <Link to="/contact">
                 <Button 
                   size="lg" 
