@@ -1,5 +1,8 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 export interface StatItem {
   value: string;
@@ -22,13 +25,23 @@ const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats }) 
           <p className="text-lg max-w-2xl mx-auto mb-12 text-blue-200 text-center">
             {description}
           </p>
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
                 <div className="text-4xl font-bold mb-2">{stat.value}</div>
                 <div className="text-blue-200">{stat.label}</div>
               </div>
             ))}
+          </div>
+          <div className="flex justify-center">
+            <Link to="/contact">
+              <Button 
+                size="lg" 
+                className="bg-purple-600 hover:bg-purple-700 text-white"
+              >
+                Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
+              </Button>
+            </Link>
           </div>
         </div>
       </div>
@@ -37,4 +50,3 @@ const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats }) 
 };
 
 export default ImpactStats;
-
