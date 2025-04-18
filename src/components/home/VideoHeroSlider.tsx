@@ -10,22 +10,9 @@ import {
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { ArrowRight } from 'lucide-react';
+import type { CarouselApi } from "@/components/ui/carousel";
 
-interface Slide {
-  id: number;
-  title: string;
-  subtitle: string;
-  description: string;
-  ctaText: string;
-  ctaLink: string;
-  type: 'image' | 'video';
-  source: string;
-  thumbnail: string;
-}
-
-// This data would be fetched from an API in a real app
-// based on what's configured in the Admin hero section
-const slides: Slide[] = [
+const slides = [
   {
     id: 1,
     title: "Your Business, Our Expertise",
@@ -33,7 +20,7 @@ const slides: Slide[] = [
     description: "We partner with businesses to create strategic solutions that drive real results",
     ctaText: "Learn More",
     ctaLink: "/pages/about-us",
-    type: 'image',
+    type: 'image' as const,
     source: "https://images.unsplash.com/photo-1519389950473-47ba0277781c",
     thumbnail: "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=100&h=100&fit=crop"
   },
@@ -44,7 +31,7 @@ const slides: Slide[] = [
     description: "Leverage cutting-edge technology to transform your business operations",
     ctaText: "Our Services",
     ctaLink: "/pages/services",
-    type: 'video',
+    type: 'video' as const,
     source: "https://player.vimeo.com/external/517090621.hd.mp4?s=c8bbdfadbc7c654af239dbc5276c276a991274c2&profile_id=175",
     thumbnail: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=100&h=100&fit=crop"
   },
@@ -55,7 +42,7 @@ const slides: Slide[] = [
     description: "Our team of experts provides personalized consultation to meet your unique requirements",
     ctaText: "Contact Us",
     ctaLink: "/pages/contact",
-    type: 'image',
+    type: 'image' as const,
     source: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158",
     thumbnail: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=100&h=100&fit=crop"
   }
@@ -63,12 +50,21 @@ const slides: Slide[] = [
 
 export default function VideoHeroSlider() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+
+  React.useEffect(() => {
+    if (!carouselApi) return;
+
+    carouselApi.on("select", () => {
+      setCurrentSlide(carouselApi.selectedScrollSnap());
+    });
+  }, [carouselApi]);
 
   return (
     <div className="relative h-[85vh] w-full overflow-hidden">
       <Carousel 
         className="h-full w-full"
-        onSelect={setCurrentSlide}
+        setApi={setCarouselApi}
       >
         <CarouselContent className="h-full">
           {slides.map((slide, index) => (
@@ -120,7 +116,7 @@ export default function VideoHeroSlider() {
           {slides.map((slide, index) => (
             <button
               key={slide.id}
-              onClick={() => setCurrentSlide(index)}
+              onClick={() => carouselApi?.scrollTo(index)}
               className={cn(
                 "h-16 w-24 overflow-hidden rounded border-2 transition-all",
                 currentSlide === index
