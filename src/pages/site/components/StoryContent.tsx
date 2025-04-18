@@ -26,6 +26,14 @@ const StoryContent: React.FC<StoryContentProps> = ({
 }) => {
   return (
     <Card className="p-8 shadow-lg">
+      <div className="mb-12">
+        <StoryStep id={id} stepNumber={stepNumber} title={title}>
+          <div className="mt-4">
+            <p className="text-xl font-light text-gray-600">{description}</p>
+          </div>
+        </StoryStep>
+      </div>
+
       <div className={`grid md:grid-cols-2 gap-12 items-start ${imagePosition === 'right' ? 'flex-row-reverse' : ''}`}>
         {imagePosition === 'left' ? (
           <div>
@@ -37,14 +45,6 @@ const StoryContent: React.FC<StoryContentProps> = ({
           </div>
         ) : null}
         <div>
-          <div className="mb-8">
-            <StoryStep id={id} stepNumber={stepNumber} title={title}>
-              <div className="mt-4">
-                <p className="text-xl font-light text-gray-600">{description}</p>
-              </div>
-            </StoryStep>
-          </div>
-          
           <Accordion type="single" collapsible className="border-0">
             {items.map((item, index) => (
               <AccordionItem key={index} value={`${id}-${index}`} className="border-b border-gray-200">
