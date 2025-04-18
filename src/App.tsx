@@ -32,10 +32,6 @@ import Blog from "./pages/site/Blog";
 import CoreValues from "./pages/site/CoreValues";
 import MAFoundation from "./pages/site/MAFoundation";
 
-// Import Beginning subpages
-import FoundingStory from "./pages/site/beginning/FoundingStory";
-import Heritage from "./pages/site/beginning/Heritage";
-
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -47,13 +43,7 @@ const App = () => (
         <Routes>
           {/* Main Site Routes */}
           <Route path="/" element={<Index />} />
-          
-          {/* Beginning section and subpages */}
           <Route path="/beginning" element={<Beginning />} />
-          <Route path="/beginning/founding-story" element={<FoundingStory />} />
-          <Route path="/beginning/heritage" element={<Heritage />} />
-          {/* We'll add more subpages as they're created */}
-          
           <Route path="/who-we-are" element={<WhoWeAre />} />
           <Route path="/who-we-are/core-values" element={<CoreValues />} />
           <Route path="/what-we-do" element={<WhatWeDo />} />
