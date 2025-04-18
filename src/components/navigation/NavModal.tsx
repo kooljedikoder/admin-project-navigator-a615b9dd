@@ -19,50 +19,45 @@ interface NavModalProps {
   title: string;
   description: string;
   subLinks: SubLink[];
-  backgroundVideo?: string;
+  sideImage?: string;
 }
 
-const NavModal = ({ isOpen, onClose, title, description, subLinks, backgroundVideo }: NavModalProps) => {
+const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: NavModalProps) => {
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-4xl p-0 overflow-hidden">
-        <div className="relative min-h-[400px]">
-          {backgroundVideo && (
-            <>
-              <video
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="absolute inset-0 w-full h-full object-cover"
-              >
-                <source src={backgroundVideo} type="video/mp4" />
-              </video>
-              {/* Dark overlay for better text visibility */}
-              <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" />
-            </>
-          )}
-          
-          <div className="relative z-10 p-8">
-            <h2 className="text-3xl font-semibold mb-4 text-white">{title}</h2>
-            <p className="text-gray-200 mb-8 text-lg">{description}</p>
+      <DialogContent className="max-w-6xl p-0 overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2">
+          {/* Side Image */}
+          <div className="relative hidden md:block">
+            <img
+              src={sideImage || "https://images.unsplash.com/photo-1460925895917-afdab827c52f"}
+              alt="Section Background"
+              className="h-full w-full object-cover"
+            />
+            <div className="absolute inset-0 bg-blue-900/30 backdrop-blur-sm" />
+          </div>
+
+          {/* Content Section */}
+          <div className="p-8 bg-white">
+            <h2 className="text-3xl font-semibold mb-4 text-gray-900">{title}</h2>
+            <p className="text-gray-600 mb-8 text-lg">{description}</p>
             
-            <div className="grid md:grid-cols-2 gap-6 mb-8">
+            <div className="grid gap-4 mb-8">
               {subLinks.map((link) => (
                 <Link
                   key={link.id}
                   to={link.url}
-                  className="group flex items-start p-4 rounded-lg bg-white/10 hover:bg-white/20 transition-colors backdrop-blur-sm"
+                  className="group flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
                   onClick={onClose}
                 >
-                  <div className="flex-shrink-0 mr-4 text-blue-300">
+                  <div className="flex-shrink-0 mr-4 text-blue-600">
                     {link.icon}
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-1 text-white group-hover:text-blue-200 transition-colors">
+                    <h3 className="font-semibold mb-1 group-hover:text-blue-600 transition-colors">
                       {link.label}
                     </h3>
-                    <p className="text-sm text-gray-300">{link.description}</p>
+                    <p className="text-sm text-gray-600">{link.description}</p>
                   </div>
                 </Link>
               ))}
