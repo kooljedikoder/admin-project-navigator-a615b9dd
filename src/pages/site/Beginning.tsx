@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { ChevronDown } from 'lucide-react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
 
