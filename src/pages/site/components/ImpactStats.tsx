@@ -39,7 +39,7 @@ const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats, ti
               <Button 
                 size="lg" 
                 className="text-white"
-                style={{ backgroundColor: titleColor || '#7f86dc', hover: { backgroundColor: titleColor ? `${titleColor}90` : '#7f86dc90' } }}
+                style={{ backgroundColor: titleColor || '#7f86dc' }}
               >
                 Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
