@@ -24,7 +24,7 @@ const Beginning = () => {
       id: 'our-evolution', 
       label: 'Our Evolution',
       url: '/beginning/evolution',
-      description: 'See how we've evolved and transformed over the years'
+      description: "See how we've evolved and transformed over the years" // Changed to double quotes
     },
     { 
       id: 'key-milestones', 
