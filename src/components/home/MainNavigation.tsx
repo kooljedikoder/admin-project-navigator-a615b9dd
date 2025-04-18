@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserRound, Book, Users, Grid, Handshake, Compass, Star, Phone } from 'lucide-react';
@@ -64,7 +65,10 @@ const MainNavigation = () => {
             <DesktopNav isScrolled={isScrolled} />
             
             <div className="hidden lg:flex items-center gap-4">
-              <Button className="bg-white text-[#1704D5] hover:bg-blue-50">
+              <Button 
+                variant="default" 
+                className="bg-white text-[#1704D5] hover:bg-blue-50"
+              >
                 Get a Consultation
               </Button>
               <Link 

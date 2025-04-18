@@ -57,7 +57,10 @@ const MobileNav = ({ isOpen, onClose, getMenuIcon }: MobileNavProps) => {
           ))}
           
           <div className="mt-4 flex flex-col gap-4">
-            <Button className="w-full bg-blue-600 hover:bg-blue-700">
+            <Button 
+              variant="default" 
+              className="w-full bg-[#1704D5] text-white hover:bg-[#1704D5]/90"
+            >
               Get a Consultation
             </Button>
             <Link 
