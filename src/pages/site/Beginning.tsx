@@ -1,4 +1,3 @@
-
 import React from 'react';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
@@ -9,6 +8,7 @@ import ImpactStats from './components/ImpactStats';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Card } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 
 const Beginning = () => {
@@ -20,6 +20,39 @@ const Beginning = () => {
     { id: 'founding-principles', label: 'Founding Principles' },
     { id: 'faq', label: 'FAQ' }
   ];
+
+  const storyContent = {
+    foundingStory: [
+      { title: 'Vision and Mission', content: 'Our journey began with a clear vision to revolutionize digital solutions for businesses.' },
+      { title: 'Initial Team', content: 'Three passionate innovators came together with complementary skills and shared values.' },
+      { title: 'Early Challenges', content: 'Navigating market uncertainties and building trust with our first clients.' },
+      { title: 'First Success', content: 'Landing our first major client and delivering transformative results.' }
+    ],
+    heritage: [
+      { title: 'Professional Background', content: 'Bringing together expertise from various industries and disciplines.' },
+      { title: 'Industry Knowledge', content: 'Deep understanding of multiple sectors and their unique challenges.' },
+      { title: 'Learning Culture', content: 'Fostering an environment of continuous growth and development.' },
+      { title: 'Core Values', content: 'Maintaining our foundational principles while embracing innovation.' }
+    ],
+    evolution: [
+      { title: 'Service Growth', content: 'Expanding our offerings to meet emerging market needs.' },
+      { title: 'Technology Adoption', content: 'Staying ahead with cutting-edge technological solutions.' },
+      { title: 'Global Reach', content: 'Extending our impact across international markets.' },
+      { title: 'Team Development', content: 'Building diverse, skilled teams across specializations.' }
+    ],
+    milestones: [
+      { title: '2010 Foundation', content: 'Establishment of the company and first client engagement.' },
+      { title: '2015 Expansion', content: 'Opening of international offices and market presence.' },
+      { title: '2018 Innovation', content: 'Launch of AI and digital transformation solutions.' },
+      { title: '2022 Recognition', content: 'Receiving global innovation awards and industry recognition.' }
+    ],
+    principles: [
+      { title: 'Customer Focus', content: 'Putting client success at the heart of everything we do.' },
+      { title: 'Innovation Drive', content: 'Constantly pushing boundaries with new solutions.' },
+      { title: 'Ethical Practice', content: 'Maintaining highest standards of business ethics.' },
+      { title: 'Continuous Growth', content: 'Always learning and evolving with the market.' }
+    ]
+  };
 
   const faqItems = [
     {
@@ -47,7 +80,7 @@ const Beginning = () => {
       <HeroSection 
         title="Where It All Began" 
         subtitle="Our journey from humble beginnings to industry leadership"
-        backgroundImage="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"
+        backgroundImage="https://images.unsplash.com/photo-1517245386807-bb43f82c33c5"
       />
       
       <div className="relative bg-white">
@@ -62,74 +95,121 @@ const Beginning = () => {
                 id="our-story"
                 stepNumber={1}
                 title="Our Founding Story"
-                description="Founded in 2010, our journey began with a bold vision to transform how businesses approach digital solutions. Starting with just three passionate individuals, we set out to create meaningful change in the industry."
-                listItems={[
-                  'Initial vision and mission establishment',
-                  'First team of innovators and dreamers',
-                  'Overcoming early market challenges',
-                  'First major client breakthrough'
-                ]}
-                image="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
-              />
+                description="Founded in 2010, our journey began with a bold vision to transform how businesses approach digital solutions."
+                image="https://images.unsplash.com/photo-1552664730-d307ca884978"
+                imagePosition="left"
+              >
+                <Card className="p-6">
+                  <Accordion type="single" collapsible>
+                    {storyContent.foundingStory.map((item, index) => (
+                      <AccordionItem key={index} value={`founding-${index}`}>
+                        <AccordionTrigger className="text-left font-light">
+                          {item.title}
+                        </AccordionTrigger>
+                        <AccordionContent className="font-light">
+                          {item.content}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </Card>
+              </StoryStep>
               
               <StoryStep 
                 id="our-heritage"
                 stepNumber={2}
                 title="Our Heritage"
-                description="Built on decades of collective experience, our heritage combines traditional business wisdom with cutting-edge technological innovation. We've cultivated a unique approach that bridges generations of knowledge."
-                listItems={[
-                  'Interdisciplinary professional backgrounds',
-                  'Cross-industry expertise',
-                  'Commitment to continuous learning',
-                  'Preserving core values while embracing change'
-                ]}
+                description="Built on decades of collective experience, our heritage combines traditional business wisdom with cutting-edge innovation."
                 image="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40"
                 imagePosition="right"
-              />
+              >
+                <Card className="p-6">
+                  <Accordion type="single" collapsible>
+                    {storyContent.heritage.map((item, index) => (
+                      <AccordionItem key={index} value={`heritage-${index}`}>
+                        <AccordionTrigger className="text-left font-light">
+                          {item.title}
+                        </AccordionTrigger>
+                        <AccordionContent className="font-light">
+                          {item.content}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </Card>
+              </StoryStep>
               
               <StoryStep 
                 id="our-evolution"
                 stepNumber={3}
                 title="Our Evolution"
-                description="From a traditional consulting firm to a dynamic technology partner, we've continually adapted to meet the rapidly changing market demands and technological advancements."
-                listItems={[
-                  'Expanding service portfolio',
-                  'Investment in emerging technologies',
-                  'Adapting to global market shifts',
-                  'Building agile, forward-thinking teams'
-                ]}
-                image="https://images.unsplash.com/photo-1517245386807-bb43f82c33c5"
-              />
+                description="From a traditional consulting firm to a dynamic technology partner, we've continually adapted to meet market demands."
+                image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab"
+                imagePosition="left"
+              >
+                <Card className="p-6">
+                  <Accordion type="single" collapsible>
+                    {storyContent.evolution.map((item, index) => (
+                      <AccordionItem key={index} value={`evolution-${index}`}>
+                        <AccordionTrigger className="text-left font-light">
+                          {item.title}
+                        </AccordionTrigger>
+                        <AccordionContent className="font-light">
+                          {item.content}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </Card>
+              </StoryStep>
               
               <StoryStep 
                 id="key-milestones"
                 stepNumber={4}
                 title="Key Milestones"
-                description="Our journey has been marked by significant achievements that have solidified our position as industry leaders and innovators."
-                listItems={[
-                  '2010: Company foundation',
-                  '2015: International expansion',
-                  '2018: AI and digital transformation division launch',
-                  '2022: Global innovation award'
-                ]}
-                image="https://images.unsplash.com/photo-1552664730-d307ca884978"
+                description="Our journey has been marked by significant achievements that have solidified our position as industry leaders."
+                image="https://images.unsplash.com/photo-1522071820081-009f0129c71c"
                 imagePosition="right"
-              />
+              >
+                <Card className="p-6">
+                  <Accordion type="single" collapsible>
+                    {storyContent.milestones.map((item, index) => (
+                      <AccordionItem key={index} value={`milestone-${index}`}>
+                        <AccordionTrigger className="text-left font-light">
+                          {item.title}
+                        </AccordionTrigger>
+                        <AccordionContent className="font-light">
+                          {item.content}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </Card>
+              </StoryStep>
               
               <StoryStep 
                 id="founding-principles"
                 stepNumber={5}
                 title="Founding Principles"
-                description="Our core principles have been the driving force behind every decision, strategy, and innovation since our inception."
-                listItems={[
-                  'Customer-centric approach',
-                  'Technological innovation',
-                  'Ethical business practices',
-                  'Continuous improvement'
-                ]}
-                image="https://images.unsplash.com/photo-1486312338219-25f4aba1f72f"
+                description="Our core principles have been the driving force behind every decision and innovation."
+                image="https://images.unsplash.com/photo-1517048676732-d65bc937f952"
                 imagePosition="left"
-              />
+              >
+                <Card className="p-6">
+                  <Accordion type="single" collapsible>
+                    {storyContent.principles.map((item, index) => (
+                      <AccordionItem key={index} value={`principle-${index}`}>
+                        <AccordionTrigger className="text-left font-light">
+                          {item.title}
+                        </AccordionTrigger>
+                        <AccordionContent className="font-light">
+                          {item.content}
+                        </AccordionContent>
+                      </AccordionItem>
+                    ))}
+                  </Accordion>
+                </Card>
+              </StoryStep>
               
               <div id="faq" className="relative scroll-mt-24">
                 <div className="flex items-center justify-center absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-blue-600 text-white text-lg font-bold">
