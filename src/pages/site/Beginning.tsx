@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import MainNavigation from '@/components/home/MainNavigation';
 import FooterSection from '@/components/home/FooterSection';
 import SectionSideMenu, { SectionLink } from '@/components/navigation/SectionSideMenu';
@@ -7,6 +8,8 @@ import ImpactStats from './components/ImpactStats';
 import StoryContent from './components/StoryContent';
 import FAQSection from './components/FAQSection';
 import { storyContent } from './data/storyContent';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const Beginning = () => {
   const sectionLinks: SectionLink[] = [
