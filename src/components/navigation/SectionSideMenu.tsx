@@ -46,7 +46,7 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
 
   return (
     <div className={`hidden lg:block ${isSticky ? 'fixed top-20' : 'absolute top-0'} left-0 z-40`}>
-      <div className="bg-white/80 backdrop-blur-sm shadow-[5px_5px_10px_rgba(0,0,0,0.05),-5px_-5px_10px_rgba(255,255,255,0.8)] rounded-r-2xl p-6 w-64">
+      <div className="bg-white/80 backdrop-blur-sm rounded-r-2xl p-6 w-64">
         <nav className="space-y-2">
           {links.map((link) => (
             <button
@@ -63,10 +63,10 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
                   });
                 }
               }}
-              className={`flex items-center gap-2 text-sm font-light w-full text-left py-3 px-4 rounded-xl transition-all ${
+              className={`flex items-center gap-2 text-sm w-full text-left py-3 px-4 rounded-xl transition-all ${
                 activeSection === link.id
-                  ? 'bg-blue-50 text-blue-600 shadow-[inset_3px_3px_6px_rgba(0,0,0,0.05),inset_-3px_-3px_6px_rgba(255,255,255,0.8)]'
-                  : 'text-gray-700 hover:text-blue-600'
+                  ? 'bg-[#9b87f5] text-white font-bold'
+                  : 'text-gray-700 hover:text-[#9b87f5]'
               }`}
             >
               <ChevronRight className="h-4 w-4" />
