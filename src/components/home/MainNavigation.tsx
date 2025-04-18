@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserRound } from 'lucide-react';
@@ -34,15 +33,12 @@ const MainNavigation = () => {
       >
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center">
-            <Link to="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-4">
               <img 
-                src="/logo.png" 
+                src="/lovable-uploads/698a3c21-f49a-430a-b9b7-c60477a6898c.png" 
                 alt="Moore Advice Logo" 
-                className="w-10 h-10 object-contain" 
+                className="h-12 object-contain" 
               />
-              <span className="font-light text-xl text-white">
-                Moore Advice
-              </span>
             </Link>
             
             <DesktopNav isScrolled={isScrolled} />
