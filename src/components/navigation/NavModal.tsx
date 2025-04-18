@@ -23,53 +23,81 @@ interface NavModalProps {
 }
 
 const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: NavModalProps) => {
+  const firstColumn = subLinks.slice(0, 3);
+  const secondColumn = subLinks.slice(3, 6);
+
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-6xl p-0 overflow-hidden">
+      <DialogContent className="max-w-5xl p-0 overflow-hidden">
         <div className="grid grid-cols-1 md:grid-cols-2">
           {/* Side Image */}
-          <div className="relative hidden md:block">
+          <div className="relative hidden md:block h-[400px]">
             <img
               src={sideImage || "https://images.unsplash.com/photo-1460925895917-afdab827c52f"}
               alt="Section Background"
               className="h-full w-full object-cover"
             />
-            <div className="absolute inset-0 bg-blue-900/30 backdrop-blur-sm" />
+            <div className="absolute inset-0 bg-blue-900/20 backdrop-blur-[2px]" />
           </div>
 
           {/* Content Section */}
           <div className="p-8 bg-white">
             <h2 className="text-3xl font-semibold mb-4 text-gray-900">{title}</h2>
-            <p className="text-gray-600 mb-8 text-lg">{description}</p>
+            <p className="text-gray-600 mb-8">{description}</p>
             
-            <div className="grid gap-4 mb-8">
-              {subLinks.map((link) => (
-                <Link
-                  key={link.id}
-                  to={link.url}
-                  className="group flex items-start p-4 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
-                  onClick={onClose}
-                >
-                  <div className="flex-shrink-0 mr-4 text-blue-600">
-                    {link.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold mb-1 group-hover:text-blue-600 transition-colors">
-                      {link.label}
-                    </h3>
-                    <p className="text-sm text-gray-600">{link.description}</p>
-                  </div>
-                </Link>
-              ))}
+            <div className="grid md:grid-cols-2 gap-4 mb-8">
+              {/* First Column */}
+              <div className="space-y-4">
+                {firstColumn.map((link) => (
+                  <Link
+                    key={link.id}
+                    to={link.url}
+                    className="group flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                    onClick={onClose}
+                  >
+                    <div className="flex-shrink-0 mr-3 text-blue-600">
+                      {link.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1 group-hover:text-blue-600 transition-colors">
+                        {link.label}
+                      </h3>
+                      <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+
+              {/* Second Column */}
+              <div className="space-y-4">
+                {secondColumn.map((link) => (
+                  <Link
+                    key={link.id}
+                    to={link.url}
+                    className="group flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
+                    onClick={onClose}
+                  >
+                    <div className="flex-shrink-0 mr-3 text-blue-600">
+                      {link.icon}
+                    </div>
+                    <div>
+                      <h3 className="font-medium mb-1 group-hover:text-blue-600 transition-colors">
+                        {link.label}
+                      </h3>
+                      <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
             </div>
 
             <div className="text-center">
               <Button
                 onClick={onClose}
-                className="bg-blue-500 hover:bg-blue-600 text-white animate-pulse hover:animate-none"
+                className="bg-blue-500 hover:bg-blue-600 text-white"
                 size="lg"
               >
-                Go to Section
+                Close
                 <ArrowRight className="ml-2" />
               </Button>
             </div>
@@ -81,3 +109,4 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
 };
 
 export default NavModal;
+
