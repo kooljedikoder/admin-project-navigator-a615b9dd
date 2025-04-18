@@ -45,7 +45,7 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
   if (!visible || links.length === 0) return null;
 
   return (
-    <div className={`hidden lg:block ${isSticky ? 'fixed top-20' : 'absolute top-[220px]'} left-0 z-40`}>
+    <div className={`hidden lg:block ${isSticky ? 'fixed top-20' : 'absolute top-[30px]'} left-0 z-40`}>
       <div className="bg-white/80 backdrop-blur-sm rounded-r-2xl p-6 w-64">
         <nav className="space-y-2">
           {links.map((link) => (
