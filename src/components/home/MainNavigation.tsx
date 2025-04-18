@@ -1,8 +1,6 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { UserRound } from 'lucide-react';
-import TopInfoBar from '@/components/navigation/TopInfoBar';
 import DesktopNav from '@/components/navigation/DesktopNav';
 import MobileNav from '@/components/navigation/MobileNav';
 import MobileMenuButton from '@/components/navigation/MobileMenuButton';
@@ -25,7 +23,6 @@ const MainNavigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Get menu icon function used by MobileNav
   const getMenuIcon = (label: string) => {
     switch(label) {
       case 'In the Beginning': return <Book className="mr-2 h-4 w-4" />;
@@ -41,8 +38,6 @@ const MainNavigation = () => {
 
   return (
     <>
-      <TopInfoBar />
-      
       <header 
         className={`sticky top-0 z-50 transition-all duration-300 w-full ${
           isScrolled 
