@@ -37,6 +37,10 @@ const StoryContent: React.FC<StoryContentProps> = ({
         <div className={`grid md:grid-cols-2 gap-12 items-start ${imagePosition === 'right' ? 'flex-row-reverse' : ''}`}>
           {imagePosition === 'left' ? (
             <div>
+              <div className="mb-8">
+                <h4 className="text-xl font-light mb-2">{title}</h4>
+                <p className="text-base font-light text-gray-600">{description}</p>
+              </div>
               <img 
                 src={image} 
                 alt={title} 
@@ -45,6 +49,10 @@ const StoryContent: React.FC<StoryContentProps> = ({
             </div>
           ) : null}
           <div>
+            <div className="mb-8">
+              <h4 className="text-xl font-light mb-2">{title}</h4>
+              <p className="text-base font-light text-gray-600">{description}</p>
+            </div>
             <Accordion type="single" collapsible className="border-0">
               {items.map((item, index) => (
                 <AccordionItem key={index} value={`${id}-${index}`} className="border-b border-gray-200">
@@ -60,6 +68,10 @@ const StoryContent: React.FC<StoryContentProps> = ({
           </div>
           {imagePosition === 'right' ? (
             <div>
+              <div className="mb-8">
+                <h4 className="text-xl font-light mb-2">{title}</h4>
+                <p className="text-base font-light text-gray-600">{description}</p>
+              </div>
               <img 
                 src={image} 
                 alt={title} 
