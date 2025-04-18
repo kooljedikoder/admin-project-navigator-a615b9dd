@@ -28,24 +28,14 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
-      <DialogContent className="max-w-5xl p-0 overflow-hidden">
-        <div className="grid grid-cols-1 md:grid-cols-2">
-          {/* Side Image */}
-          <div className="relative hidden md:block h-[400px]">
-            <img
-              src={sideImage || "https://images.unsplash.com/photo-1460925895917-afdab827c52f"}
-              alt="Section Background"
-              className="h-full w-full object-cover"
-            />
-            <div className="absolute inset-0 bg-blue-900/20 backdrop-blur-[2px]" />
-          </div>
-
+      <DialogContent className="max-w-6xl p-0 overflow-hidden">
+        <div className="grid grid-cols-12">
           {/* Content Section */}
-          <div className="p-8 bg-white">
+          <div className="col-span-8 p-8 bg-white">
             <h2 className="text-3xl font-semibold mb-4 text-gray-900">{title}</h2>
             <p className="text-gray-600 mb-8">{description}</p>
             
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
+            <div className="grid grid-cols-2 gap-6 mb-8">
               {/* First Column */}
               <div className="space-y-4">
                 {firstColumn.map((link) => (
@@ -101,6 +91,16 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                 <ArrowRight className="ml-2" />
               </Button>
             </div>
+          </div>
+
+          {/* Side Image */}
+          <div className="relative col-span-4 h-full">
+            <img
+              src={sideImage || "https://images.unsplash.com/photo-1460925895917-afdab827c52f"}
+              alt="Section Background"
+              className="h-full w-full object-cover absolute inset-0"
+            />
+            <div className="absolute inset-0 bg-blue-900/10 backdrop-blur-[1px]" />
           </div>
         </div>
       </DialogContent>
