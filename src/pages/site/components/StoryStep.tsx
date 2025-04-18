@@ -22,8 +22,10 @@ const StoryStep: React.FC<StoryStepProps> = ({
 }) => {
   return (
     <div id={id} className="relative scroll-mt-24">
-      <div className="flex items-center justify-center absolute -top-4 left-1/2 transform -translate-x-1/2 w-8 h-8 rounded-full bg-blue-600 text-white text-lg font-bold">
-        {stepNumber}
+      <div className="flex items-center justify-center w-full mb-6">
+        <div className="w-8 h-8 rounded-full bg-blue-600 text-white text-lg font-bold flex items-center justify-center">
+          {stepNumber}
+        </div>
       </div>
       <div className={`grid md:grid-cols-2 gap-12 items-start ${imagePosition === 'right' ? 'flex-row-reverse' : ''}`}>
         {imagePosition === 'left' ? (
@@ -35,9 +37,9 @@ const StoryStep: React.FC<StoryStepProps> = ({
             />
           </div>
         ) : null}
-        <div className={imagePosition === 'right' ? 'order-1' : ''}>
-          <h3 className="text-2xl font-light mb-4">{title}</h3>
-          <p className="text-lg mb-6 font-light">{description}</p>
+        <div className={`${imagePosition === 'right' ? 'order-1' : ''}`}>
+          <h3 className="text-2xl font-light mb-2 text-center">{title}</h3>
+          <p className="text-lg mb-6 font-light text-center">{description}</p>
           {children}
         </div>
         {imagePosition === 'right' ? (
