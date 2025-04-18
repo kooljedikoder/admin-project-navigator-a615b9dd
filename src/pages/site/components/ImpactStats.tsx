@@ -15,9 +15,9 @@ interface ImpactStatsProps {
   titleColor?: string;
 }
 
-const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats, titleColor = '#1A1DB0' }) => {
+const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats, titleColor = '#9b87f5' }) => {
   return (
-    <section className="bg-[#1A1DB0]/5">
+    <section className="bg-[#9b87f5]/5">
       <div className="py-16">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="md:col-span-1 md:w-full">
