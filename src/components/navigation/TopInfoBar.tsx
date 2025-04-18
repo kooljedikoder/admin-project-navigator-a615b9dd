@@ -1,10 +1,9 @@
-
 import React from 'react';
 import { Phone, Mail, MapPin, Facebook, Twitter, Linkedin, Instagram } from 'lucide-react';
 
 const TopInfoBar = () => {
   return (
-    <div className="bg-blue-950 text-white py-2 hidden md:block">
+    <div className="bg-[#1a1db0] text-white py-2 hidden md:block">
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center">
           <div className="flex items-center gap-6 text-sm">
