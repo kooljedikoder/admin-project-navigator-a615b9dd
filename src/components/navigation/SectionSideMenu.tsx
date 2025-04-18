@@ -65,8 +65,8 @@ const SectionSideMenu = ({ links, visible }: SectionSideMenuProps) => {
               }}
               className={`flex items-center gap-2 text-sm w-full text-left py-3 px-4 rounded-xl transition-all ${
                 activeSection === link.id
-                  ? 'bg-[#9b87f5] text-white font-bold'
-                  : 'text-gray-700 hover:text-[#9b87f5]'
+                  ? 'bg-[#1a1db0] text-white font-bold'
+                  : 'text-gray-700 hover:text-[#1a1db0]'
               }`}
             >
               <ChevronRight className="h-4 w-4" />
