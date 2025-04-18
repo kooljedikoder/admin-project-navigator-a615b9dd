@@ -13,15 +13,16 @@ interface ImpactStatsProps {
   title: string;
   description: string;
   stats: StatItem[];
+  titleColor?: string;
 }
 
-const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats }) => {
+const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats, titleColor = '#1a1db0' }) => {
   return (
     <section className="bg-blue-600 text-white">
       <div className="relative py-16 overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center opacity-5"></div>
         <div className="container mx-auto px-4 relative z-10">
-          <h3 className="text-3xl font-bold mb-4 text-center">{title}</h3>
+          <h3 className="text-3xl font-bold mb-4 text-center" style={{ color: titleColor ? 'white' : undefined }}>{title}</h3>
           <p className="text-lg max-w-2xl mx-auto mb-12 text-blue-100 text-center">
             {description}
           </p>
@@ -37,7 +38,8 @@ const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats }) 
             <Link to="/contact">
               <Button 
                 size="lg" 
-                className="bg-purple-600 hover:bg-purple-700 text-white"
+                className="text-white"
+                style={{ backgroundColor: titleColor || '#7f86dc', hover: { backgroundColor: titleColor ? `${titleColor}90` : '#7f86dc90' } }}
               >
                 Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
               </Button>

@@ -13,6 +13,7 @@ interface StoryContentProps {
   image: string;
   imagePosition?: 'left' | 'right';
   items: StoryContentItem[];
+  titleColor?: string;
 }
 
 const StoryContent: React.FC<StoryContentProps> = ({
@@ -22,7 +23,8 @@ const StoryContent: React.FC<StoryContentProps> = ({
   description,
   image,
   imagePosition = 'left',
-  items
+  items,
+  titleColor = '#1a1db0'
 }) => {
   return (
     <Card className="p-8 shadow-lg">
@@ -30,7 +32,7 @@ const StoryContent: React.FC<StoryContentProps> = ({
         {/* Content Section */}
         <div className={`${imagePosition === 'right' ? 'md:col-start-1' : ''}`}>
           <div className="mb-8">
-            <StoryStep id={id} stepNumber={stepNumber} title={title}>
+            <StoryStep id={id} stepNumber={stepNumber} title={title} titleColor={titleColor}>
               <div className="mt-4">
                 <p className="text-xl font-light text-gray-600">{description}</p>
               </div>
@@ -65,4 +67,3 @@ const StoryContent: React.FC<StoryContentProps> = ({
 };
 
 export default StoryContent;
-

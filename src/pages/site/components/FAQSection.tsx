@@ -11,15 +11,16 @@ interface FAQItem {
 
 interface FAQSectionProps {
   items: FAQItem[];
+  titleColor?: string;
 }
 
-const FAQSection: React.FC<FAQSectionProps> = ({ items }) => {
+const FAQSection: React.FC<FAQSectionProps> = ({ items, titleColor = '#1a1db0' }) => {
   return (
     <Card className="p-8 shadow-lg">
       <div className="grid md:grid-cols-2 gap-12 items-start">
         <div>
           <div className="mb-8">
-            <StoryStep id="faq" stepNumber={6} title="Frequently Asked Questions">
+            <StoryStep id="faq" stepNumber={6} title="Frequently Asked Questions" titleColor={titleColor}>
               <div className="mt-4">
                 <p className="text-xl font-light text-gray-600">
                   Explore common queries about our company's history, mission, and approach to helping businesses succeed.
