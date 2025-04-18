@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
@@ -36,8 +35,12 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-6xl p-0 overflow-hidden">
-        <button onClick={onClose} className="absolute right-4 top-4 z-50">
-          <X className="h-8 w-8 text-[#1A1DB0] hover:text-[#1A1DB0]/80 transition-colors" />
+        <button 
+          onClick={onClose} 
+          className="absolute right-4 top-4 z-50 bg-[#1A1DB0] p-1 rounded-full hover:bg-[#1A1DB0]/80 transition-colors group"
+        >
+          <X className="h-6 w-6 text-white group-hover:text-white/80" />
+          <span className="sr-only animate-pulse text-[#1A1DB0]">Close</span>
         </button>
         <div className="grid grid-cols-12">
           <div className="col-span-8 p-8 bg-white">
