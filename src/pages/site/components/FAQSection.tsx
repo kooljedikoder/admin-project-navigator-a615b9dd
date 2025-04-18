@@ -16,41 +16,40 @@ interface FAQSectionProps {
 const FAQSection: React.FC<FAQSectionProps> = ({ items }) => {
   return (
     <Card className="p-8 shadow-lg">
-      <div className="mb-12">
-        <StoryStep id="faq" stepNumber={6} title="Frequently Asked Questions">
-          <div className="mt-4">
-            <p className="text-xl font-light text-gray-600">
-              Explore common queries about our company's history, mission, and approach to helping businesses succeed.
-            </p>
+      <StoryStep id="faq" stepNumber={6}>
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          <div>
+            <div className="mb-8">
+              <h3 className="text-2xl font-light mb-4">Frequently Asked Questions</h3>
+              <p className="text-lg mb-6 font-light text-gray-600">
+                Explore common queries about our company's history, mission, and approach to helping businesses succeed.
+              </p>
+            </div>
+            <Accordion type="single" collapsible className="w-full border-0">
+              {items.map((item, index) => (
+                <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200">
+                  <AccordionTrigger className="text-left font-light">
+                    {item.question}
+                  </AccordionTrigger>
+                  <AccordionContent className="font-light">
+                    {item.answer}
+                  </AccordionContent>
+                </AccordionItem>
+              ))}
+            </Accordion>
           </div>
-        </StoryStep>
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-12 items-start">
-        <div>
-          <Accordion type="single" collapsible className="border-0">
-            {items.map((item, index) => (
-              <AccordionItem key={index} value={`item-${index}`} className="border-b border-gray-200">
-                <AccordionTrigger className="text-left font-light">
-                  {item.question}
-                </AccordionTrigger>
-                <AccordionContent className="font-light">
-                  {item.answer}
-                </AccordionContent>
-              </AccordionItem>
-            ))}
-          </Accordion>
+          <div>
+            <img 
+              src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
+              alt="Frequently Asked Questions" 
+              className="rounded-lg shadow-lg w-full h-[400px] object-cover"
+            />
+          </div>
         </div>
-        <div>
-          <img 
-            src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d" 
-            alt="Frequently Asked Questions" 
-            className="rounded-lg shadow-lg w-full h-[400px] object-cover"
-          />
-        </div>
-      </div>
+      </StoryStep>
     </Card>
   );
 };
 
 export default FAQSection;
+

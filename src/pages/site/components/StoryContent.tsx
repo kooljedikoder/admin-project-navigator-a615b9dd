@@ -28,7 +28,7 @@ const StoryContent: React.FC<StoryContentProps> = ({
     <Card className="p-8 shadow-lg">
       <div className="mb-12">
         <StoryStep id={id} stepNumber={stepNumber} title={title}>
-          <div className="mt-4">
+          <div className="mt-6">
             <p className="text-xl font-light text-gray-600">{description}</p>
           </div>
         </StoryStep>
