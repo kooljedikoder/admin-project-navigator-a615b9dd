@@ -39,11 +39,11 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-6xl p-0 overflow-hidden">
         <button onClick={onClose} className="absolute right-4 top-4 z-50">
-          <X className="h-8 w-8 text-[#7f86dc] hover:text-[#7f86dc]/80 transition-colors" />
+          <X className="h-8 w-8 text-[#1A1DB0] hover:text-[#1A1DB0]/80 transition-colors" />
         </button>
         <div className="grid grid-cols-12">
           <div className="col-span-8 p-8 bg-white">
-            <h2 className="text-3xl font-semibold mb-4 text-[#7f86dc]">{title}</h2>
+            <h2 className="text-3xl font-semibold mb-4 text-[#1A1DB0]">{title}</h2>
             <p className="text-gray-600 mb-8">{description}</p>
             
             <div className="grid grid-cols-2 gap-6 mb-8">
@@ -54,11 +54,11 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                     onClick={() => scrollToSection(link.id)}
                     className="w-full text-left group flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
                   >
-                    <div className="flex-shrink-0 mr-3 text-[#7f86dc]">
+                    <div className="flex-shrink-0 mr-3 text-[#1A1DB0]">
                       {link.icon}
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1 group-hover:text-[#7f86dc] transition-colors">
+                      <h3 className="font-medium mb-1 group-hover:text-[#1A1DB0] transition-colors">
                         {link.label}
                       </h3>
                       <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
@@ -74,11 +74,11 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
                     onClick={() => scrollToSection(link.id)}
                     className="w-full text-left group flex items-start p-3 rounded-lg hover:bg-gray-50 transition-colors border border-gray-100"
                   >
-                    <div className="flex-shrink-0 mr-3 text-[#7f86dc]">
+                    <div className="flex-shrink-0 mr-3 text-[#1A1DB0]">
                       {link.icon}
                     </div>
                     <div>
-                      <h3 className="font-medium mb-1 group-hover:text-[#7f86dc] transition-colors">
+                      <h3 className="font-medium mb-1 group-hover:text-[#1A1DB0] transition-colors">
                         {link.label}
                       </h3>
                       <p className="text-sm text-gray-600 line-clamp-2">{link.description}</p>
@@ -91,7 +91,7 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
             <div className="text-center">
               <Button
                 onClick={onClose}
-                className="bg-[#7f86dc] hover:bg-[#7f86dc]/90 text-white"
+                className="bg-[#1A1DB0] hover:bg-[#1A1DB0]/90 text-white"
                 size="lg"
               >
                 Go to Page
@@ -106,7 +106,7 @@ const NavModal = ({ isOpen, onClose, title, description, subLinks, sideImage }: 
               alt="Section Background"
               className="h-full w-full object-cover absolute inset-0"
             />
-            <div className="absolute inset-0 bg-[#7f86dc]/10 backdrop-blur-[1px]" />
+            <div className="absolute inset-0 bg-[#1A1DB0]/10 backdrop-blur-[1px]" />
           </div>
         </div>
       </DialogContent>

@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import MainNavigation from '@/components/home/MainNavigation';
@@ -66,7 +67,7 @@ const Beginning = () => {
                 image="https://images.unsplash.com/photo-1486718448742-163732cd1544"
                 imagePosition="right"
                 items={storyContent.foundingStory}
-                titleColor="#7f86dc"
+                titleColor="#1A1DB0"
               />
               
               <StoryContent
@@ -77,7 +78,7 @@ const Beginning = () => {
                 image="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
                 imagePosition="left"
                 items={storyContent.heritage}
-                titleColor="#7f86dc"
+                titleColor="#1A1DB0"
               />
               
               <StoryContent
@@ -88,6 +89,7 @@ const Beginning = () => {
                 image="https://images.unsplash.com/photo-1460925895917-afdab827c52f"
                 imagePosition="right"
                 items={storyContent.evolution}
+                titleColor="#1A1DB0"
               />
               
               <StoryContent
@@ -98,6 +100,7 @@ const Beginning = () => {
                 image="https://images.unsplash.com/photo-1498050108023-c5249f4df085"
                 imagePosition="left"
                 items={storyContent.milestones}
+                titleColor="#1A1DB0"
               />
               
               <StoryContent
@@ -108,9 +111,10 @@ const Beginning = () => {
                 image="https://images.unsplash.com/photo-1486718448742-163732cd1544"
                 imagePosition="right"
                 items={storyContent.principles}
+                titleColor="#1A1DB0"
               />
               
-              <FAQSection items={faqItems} titleColor="#7f86dc" />
+              <FAQSection items={faqItems} titleColor="#1A1DB0" />
             </div>
           </div>
         </section>
@@ -125,7 +129,7 @@ const Beginning = () => {
           { value: '95%', label: 'Client Satisfaction' },
           { value: '24/7', label: 'Support' }
         ]}
-        titleColor="#7f86dc"
+        titleColor="#1A1DB0"
       />
       <FooterSection />
     </div>
