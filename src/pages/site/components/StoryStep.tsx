@@ -14,8 +14,6 @@ export interface StoryStepProps {
 const StoryStep: React.FC<StoryStepProps> = ({
   id, 
   stepNumber, 
-  title, 
-  description, 
   children
 }) => {
   return (
@@ -24,10 +22,6 @@ const StoryStep: React.FC<StoryStepProps> = ({
         <div className="w-8 h-8 rounded-full bg-blue-600 text-white text-lg font-bold flex items-center justify-center">
           {stepNumber}
         </div>
-      </div>
-      <div className="w-full mb-8">
-        <h3 className="text-2xl font-light mb-2 text-center">{title}</h3>
-        <p className="text-lg mb-6 font-light text-center max-w-3xl mx-auto">{description}</p>
       </div>
       {children}
     </div>
