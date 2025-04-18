@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
@@ -16,9 +15,9 @@ interface ImpactStatsProps {
   titleColor?: string;
 }
 
-const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats, titleColor = '#9b87f5' }) => {
+const ImpactStats: React.FC<ImpactStatsProps> = ({ title, description, stats, titleColor = '#1A1DB0' }) => {
   return (
-    <section className="bg-[#DBE6FF]/5">
+    <section className="bg-[#DBE6FF]/50">
       <div className="py-16">
         <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
           <div className="md:col-span-1 md:w-full">
