@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import AdminLayout from '@/components/admin/AdminLayout';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Input } from '@/components/ui/input';
@@ -16,7 +16,6 @@ import {
   Video, 
   Youtube, 
   FileCode, 
-  Link as LinkIcon,
   Upload,
   LayoutDashboard,
   MessageSquare,
@@ -25,7 +24,7 @@ import {
   Settings
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 import { HeroSlide } from '@/components/home/VideoHeroSlider';
 import { MediaLibraryProvider, useMediaLibrary } from '@/contexts/MediaLibraryContext';
 import LogoScrollerAdmin from '@/components/admin/LogoScrollerAdmin';
@@ -162,7 +161,7 @@ const HeroAdmin: React.FC = () => {
   const [sliderSettings, setSliderSettings] = useState({
     autoplaySpeed: 5000,
     defaultAnimation: 'fade' as const,
-    overlayOpacity: 50, // New setting for opacity
+    overlayOpacity: 50,
   });
 
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -250,6 +249,12 @@ const HeroAdmin: React.FC = () => {
 
   const [isSettingsOpen, setIsSettingsOpen] = useState(false);
 
+  useEffect(() => {
+    if (slides.length > 0) {
+      handlePreviewSlide(slides[0]);
+    }
+  }, []);
+
   return (
     <AdminLayout title="Homepage Content Management">
       <MediaLibraryProvider>
@@ -284,19 +289,12 @@ const HeroAdmin: React.FC = () => {
           <TabsContent value="hero" className="space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">Manage Hero Slides</h2>
-              <div className="flex gap-2">
-                <Button onClick={handleAddSlide} className="gap-2">
-                  <PlusCircle size={16} />
-                  Add New Slide
-                </Button>
-                <Button variant="outline" onClick={() => setIsSettingsOpen(true)}>
-                  <Settings size={16} className="mr-2" />
-                  Slider Settings
-                </Button>
-              </div>
+              <Button onClick={handleAddSlide} className="gap-2">
+                <PlusCircle size={16} />
+                Add New Slide
+              </Button>
             </div>
 
-            {/* Preview Section */}
             <Card>
               <CardHeader>
                 <CardTitle>Preview</CardTitle>
@@ -337,193 +335,320 @@ const HeroAdmin: React.FC = () => {
                 )}
               </CardContent>
             </Card>
-            
-            <div className="grid grid-cols-12 gap-6">
-              {/* Slide List */}
-              <div className="col-span-12 md:col-span-3 space-y-4">
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <h3 className="font-medium mb-3">Slides</h3>
-                  <div className="space-y-2">
-                    {slides.map((slide, index) => (
-                      <div
-                        key={slide.id}
-                        onClick={() => {
-                          setCurrentSlideIndex(index);
-                          handlePreviewSlide(slide);
-                        }}
-                        className={`flex items-center p-2 rounded-md cursor-pointer text-sm hover:bg-blue-50 ${
-                          currentSlideIndex === index ? 'bg-blue-100 border-l-4 border-blue-500' : ''
-                        }`}
-                      >
-                        <div className="w-10 h-10 overflow-hidden rounded-md mr-2 flex-shrink-0">
-                          <img 
-                            src={slide.thumbnail} 
-                            alt={`Slide ${index + 1}`} 
-                            className="h-full w-full object-cover" 
-                          />
-                        </div>
-                        <div className="flex-grow overflow-hidden">
-                          <span className="block font-medium truncate">{slide.title}</span>
-                          <span className="text-xs text-gray-500">{slide.type}</span>
-                        </div>
+
+            <Tabs defaultValue="slides" className="w-full">
+              <TabsList>
+                <TabsTrigger value="slides">Slides</TabsTrigger>
+                <TabsTrigger value="settings">Slider Settings</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="slides">
+                <div className="grid grid-cols-12 gap-6">
+                  <div className="col-span-12 md:col-span-3 space-y-4">
+                    <div className="bg-gray-50 p-4 rounded-lg">
+                      <h3 className="font-medium mb-3">Slides</h3>
+                      <div className="space-y-2">
+                        {slides.map((slide, index) => (
+                          <div
+                            key={slide.id}
+                            onClick={() => {
+                              setCurrentSlideIndex(index);
+                              handlePreviewSlide(slide);
+                            }}
+                            className={`flex items-center p-2 rounded-md cursor-pointer text-sm hover:bg-blue-50 ${
+                              currentSlideIndex === index ? 'bg-blue-100 border-l-4 border-blue-500' : ''
+                            }`}
+                          >
+                            <div className="w-10 h-10 overflow-hidden rounded-md mr-2 flex-shrink-0">
+                              <img 
+                                src={slide.thumbnail} 
+                                alt={`Slide ${index + 1}`} 
+                                className="h-full w-full object-cover" 
+                              />
+                            </div>
+                            <div className="flex-grow overflow-hidden">
+                              <span className="block font-medium truncate">{slide.title}</span>
+                              <span className="text-xs text-gray-500">{slide.type}</span>
+                            </div>
+                          </div>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
-              
-              {/* Edit Section */}
-              <div className="col-span-12 md:col-span-9">
-                <div className="bg-white rounded-lg border p-6">
-                  <div className="flex justify-between mb-4">
-                    <h3 className="text-xl font-semibold">Edit Slide {currentSlideIndex + 1}</h3>
-                    <div className="flex space-x-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => moveSlide(currentSlideIndex, 'up')}
-                        disabled={currentSlideIndex === 0}
-                      >
-                        Move Up
-                      </Button>
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={() => moveSlide(currentSlideIndex, 'down')}
-                        disabled={currentSlideIndex === slides.length - 1}
-                      >
-                        Move Down
-                      </Button>
-                      <Button 
-                        variant="destructive" 
-                        size="sm"
-                        onClick={() => handleDeleteSlide(currentSlideIndex)}
-                        disabled={slides.length <= 1}
-                      >
-                        <Trash2 size={16} />
-                      </Button>
                     </div>
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="subtitle">Subtitle (Small Text)</Label>
-                        <Input 
-                          id="subtitle"
-                          value={slides[currentSlideIndex].subtitle}
-                          onChange={(e) => handleSlideChange('subtitle', e.target.value)}
-                          className="w-full"
-                        />
+                  <div className="col-span-12 md:col-span-9">
+                    <div className="bg-white rounded-lg border p-6">
+                      <div className="flex justify-between mb-4">
+                        <h3 className="text-xl font-semibold">Edit Slide {currentSlideIndex + 1}</h3>
+                        <div className="flex space-x-2">
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => moveSlide(currentSlideIndex, 'up')}
+                            disabled={currentSlideIndex === 0}
+                          >
+                            Move Up
+                          </Button>
+                          <Button 
+                            variant="outline" 
+                            size="sm"
+                            onClick={() => moveSlide(currentSlideIndex, 'down')}
+                            disabled={currentSlideIndex === slides.length - 1}
+                          >
+                            Move Down
+                          </Button>
+                          <Button 
+                            variant="destructive" 
+                            size="sm"
+                            onClick={() => handleDeleteSlide(currentSlideIndex)}
+                            disabled={slides.length <= 1}
+                          >
+                            <Trash2 size={16} />
+                          </Button>
+                        </div>
                       </div>
                       
-                      <div className="space-y-2">
-                        <Label htmlFor="title">Title (Large Text)</Label>
-                        <Input 
-                          id="title"
-                          value={slides[currentSlideIndex].title}
-                          onChange={(e) => handleSlideChange('title', e.target.value)}
-                          className="w-full"
-                        />
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="description">Description (Body Text)</Label>
-                        <Textarea 
-                          id="description"
-                          value={slides[currentSlideIndex].description}
-                          onChange={(e) => handleSlideChange('description', e.target.value)}
-                          className="w-full"
-                          rows={3}
-                        />
-                      </div>
-                    </div>
-                    
-                    <div className="space-y-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="mediaType">Media Type</Label>
-                        <Select 
-                          value={slides[currentSlideIndex].type} 
-                          onValueChange={(value) => handleSlideChange('type', value)}
-                        >
-                          <SelectTrigger>
-                            <SelectValue placeholder="Select media type" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            <SelectItem value="image">
-                              <div className="flex items-center gap-2">
-                                <Image size={16} />
-                                <span>Image</span>
-                              </div>
-                            </SelectItem>
-                            <SelectItem value="video">
-                              <div className="flex items-center gap-2">
-                                <Video size={16} />
-                                <span>Video</span>
-                              </div>
-                            </SelectItem>
-                            <SelectItem value="youtube">
-                              <div className="flex items-center gap-2">
-                                <Youtube size={16} />
-                                <span>YouTube</span>
-                              </div>
-                            </SelectItem>
-                            <SelectItem value="html">
-                              <div className="flex items-center gap-2">
-                                <FileCode size={16} />
-                                <span>HTML</span>
-                              </div>
-                            </SelectItem>
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      
-                      <div className="space-y-2">
-                        <Label htmlFor="source">Media Source</Label>
-                        <MediaSelector
-                          onSelect={(url) => handleSlideChange('source', url)}
-                          currentValue={slides[currentSlideIndex].source}
-                          mediaType={slides[currentSlideIndex].type}
-                        />
-                        {slides[currentSlideIndex].type === 'image' && (
-                          <div className="mt-4">
-                            <Label htmlFor="thumbnail">Thumbnail URL</Label>
-                            <MediaSelector
-                              onSelect={(url) => handleSlideChange('thumbnail', url)}
-                              currentValue={slides[currentSlideIndex].thumbnail}
-                              mediaType="image"
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div className="space-y-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="subtitle">Subtitle (Small Text)</Label>
+                            <Input 
+                              id="subtitle"
+                              value={slides[currentSlideIndex].subtitle}
+                              onChange={(e) => handleSlideChange('subtitle', e.target.value)}
+                              className="w-full"
                             />
                           </div>
-                        )}
+                          
+                          <div className="space-y-2">
+                            <Label htmlFor="title">Title (Large Text)</Label>
+                            <Input 
+                              id="title"
+                              value={slides[currentSlideIndex].title}
+                              onChange={(e) => handleSlideChange('title', e.target.value)}
+                              className="w-full"
+                            />
+                          </div>
+                          
+                          <div className="space-y-2">
+                            <Label htmlFor="description">Description (Body Text)</Label>
+                            <Textarea 
+                              id="description"
+                              value={slides[currentSlideIndex].description}
+                              onChange={(e) => handleSlideChange('description', e.target.value)}
+                              className="w-full"
+                              rows={3}
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="space-y-4">
+                          <div className="space-y-2">
+                            <Label htmlFor="mediaType">Media Type</Label>
+                            <Select 
+                              value={slides[currentSlideIndex].type} 
+                              onValueChange={(value) => handleSlideChange('type', value)}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select media type" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="image">
+                                  <div className="flex items-center gap-2">
+                                    <Image size={16} />
+                                    <span>Image</span>
+                                  </div>
+                                </SelectItem>
+                                <SelectItem value="video">
+                                  <div className="flex items-center gap-2">
+                                    <Video size={16} />
+                                    <span>Video</span>
+                                  </div>
+                                </SelectItem>
+                                <SelectItem value="youtube">
+                                  <div className="flex items-center gap-2">
+                                    <Youtube size={16} />
+                                    <span>YouTube</span>
+                                  </div>
+                                </SelectItem>
+                                <SelectItem value="html">
+                                  <div className="flex items-center gap-2">
+                                    <FileCode size={16} />
+                                    <span>HTML</span>
+                                  </div>
+                                </SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                          
+                          <div className="space-y-2">
+                            <Label htmlFor="source">Media Source</Label>
+                            <MediaSelector
+                              onSelect={(url) => handleSlideChange('source', url)}
+                              currentValue={slides[currentSlideIndex].source}
+                              mediaType={slides[currentSlideIndex].type}
+                            />
+                            {slides[currentSlideIndex].type === 'image' && (
+                              <div className="mt-4">
+                                <Label htmlFor="thumbnail">Thumbnail URL</Label>
+                                <MediaSelector
+                                  onSelect={(url) => handleSlideChange('thumbnail', url)}
+                                  currentValue={slides[currentSlideIndex].thumbnail}
+                                  mediaType="image"
+                                />
+                              </div>
+                            )}
+                          </div>
+                          
+                          <div className="grid grid-cols-2 gap-4">
+                            <div className="space-y-2">
+                              <Label htmlFor="ctaText">Button Text</Label>
+                              <Input 
+                                id="ctaText"
+                                value={slides[currentSlideIndex].ctaText}
+                                onChange={(e) => handleSlideChange('ctaText', e.target.value)}
+                              />
+                            </div>
+                            <div className="space-y-2">
+                              <Label htmlFor="ctaLink">Button Link</Label>
+                              <Input 
+                                id="ctaLink"
+                                value={slides[currentSlideIndex].ctaLink}
+                                onChange={(e) => handleSlideChange('ctaLink', e.target.value)}
+                              />
+                            </div>
+                          </div>
+                          
+                          <div className="space-y-2">
+                            <Label htmlFor="animation">Animation Style</Label>
+                            <Select 
+                              value={slides[currentSlideIndex].animation} 
+                              onValueChange={(value) => handleSlideChange('animation', value)}
+                            >
+                              <SelectTrigger>
+                                <SelectValue placeholder="Select animation" />
+                              </SelectTrigger>
+                              <SelectContent>
+                                <SelectItem value="fade">Fade In</SelectItem>
+                                <SelectItem value="slideLeft">Slide from Left</SelectItem>
+                                <SelectItem value="slideRight">Slide from Right</SelectItem>
+                                <SelectItem value="slideUp">Slide from Bottom</SelectItem>
+                                <SelectItem value="slideDown">Slide from Top</SelectItem>
+                              </SelectContent>
+                            </Select>
+                          </div>
+                        </div>
                       </div>
                       
-                      <div className="grid grid-cols-2 gap-4">
-                        <div className="space-y-2">
-                          <Label htmlFor="ctaText">Button Text</Label>
-                          <Input 
-                            id="ctaText"
-                            value={slides[currentSlideIndex].ctaText}
-                            onChange={(e) => handleSlideChange('ctaText', e.target.value)}
-                          />
-                        </div>
-                        <div className="space-y-2">
-                          <Label htmlFor="ctaLink">Button Link</Label>
-                          <Input 
-                            id="ctaLink"
-                            value={slides[currentSlideIndex].ctaLink}
-                            onChange={(e) => handleSlideChange('ctaLink', e.target.value)}
-                          />
+                      <div className="mt-6 border-t pt-4">
+                        <h4 className="font-medium mb-3">Preview</h4>
+                        <div className="aspect-video max-w-2xl rounded-lg overflow-hidden border bg-gray-100">
+                          {slides[currentSlideIndex].type === 'image' && (
+                            <img
+                              src={slides[currentSlideIndex].source}
+                              alt="Preview"
+                              className="w-full h-full object-cover"
+                            />
+                          )}
+                          {slides[currentSlideIndex].type === 'video' && (
+                            <video
+                              src={slides[currentSlideIndex].source}
+                              controls
+                              className="w-full h-full object-cover"
+                            />
+                          )}
+                          {slides[currentSlideIndex].type === 'youtube' && (
+                            <iframe
+                              src={slides[currentSlideIndex].source}
+                              className="w-full h-full"
+                              allowFullScreen
+                            />
+                          )}
+                          {slides[currentSlideIndex].type === 'html' && (
+                            <div 
+                              className="w-full h-full bg-white p-4 overflow-auto"
+                              dangerouslySetInnerHTML={{ __html: slides[currentSlideIndex].source }}
+                            />
+                          )}
                         </div>
                       </div>
-                      
+                    </div>
+                  </div>
+                </div>
+              </TabsContent>
+
+              <TabsContent value="settings">
+                <Card>
+                  <CardHeader>
+                    <CardTitle>Slider Settings</CardTitle>
+                    <CardDescription>Configure slider behavior and appearance</CardDescription>
+                  </CardHeader>
+                  <CardContent className="space-y-6">
+                    <div className="space-y-4">
+                      <div>
+                        <h3 className="text-md font-medium mb-2">Autoplay Speed (ms)</h3>
+                        <div className="grid grid-cols-12 gap-4 items-center">
+                          <div className="col-span-10">
+                            <Slider
+                              value={[sliderSettings.autoplaySpeed]}
+                              min={1000}
+                              max={10000}
+                              step={500}
+                              onValueChange={(value) => handleSettingsChange('autoplaySpeed', value[0])}
+                            />
+                          </div>
+                          <div className="col-span-2">
+                            <Input 
+                              type="number" 
+                              value={sliderSettings.autoplaySpeed}
+                              onChange={(e) => handleSettingsChange('autoplaySpeed', parseInt(e.target.value))}
+                              min={1000}
+                              max={10000}
+                              step={500}
+                            />
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-500 mt-1">
+                          {(sliderSettings.autoplaySpeed / 1000).toFixed(1)} seconds between slides
+                        </p>
+                      </div>
+
                       <div className="space-y-2">
-                        <Label htmlFor="animation">Animation Style</Label>
+                        <Label>Overlay Opacity</Label>
+                        <div className="grid grid-cols-12 gap-4 items-center">
+                          <div className="col-span-10">
+                            <Slider
+                              value={[sliderSettings.overlayOpacity]}
+                              min={0}
+                              max={100}
+                              step={5}
+                              onValueChange={(value) => handleSettingsChange('overlayOpacity', value[0])}
+                            />
+                          </div>
+                          <div className="col-span-2">
+                            <Input 
+                              type="number" 
+                              value={sliderSettings.overlayOpacity}
+                              onChange={(e) => handleSettingsChange('overlayOpacity', parseInt(e.target.value))}
+                              min={0}
+                              max={100}
+                              step={5}
+                            />
+                          </div>
+                        </div>
+                        <p className="text-sm text-gray-500">
+                          {sliderSettings.overlayOpacity}% overlay opacity
+                        </p>
+                      </div>
+
+                      <div className="space-y-2">
+                        <Label htmlFor="defaultAnimation">Default Animation</Label>
                         <Select 
-                          value={slides[currentSlideIndex].animation} 
-                          onValueChange={(value) => handleSlideChange('animation', value)}
+                          value={sliderSettings.defaultAnimation} 
+                          onValueChange={(value) => handleSettingsChange('defaultAnimation', value)}
                         >
                           <SelectTrigger>
-                            <SelectValue placeholder="Select animation" />
+                            <SelectValue placeholder="Select default animation" />
                           </SelectTrigger>
                           <SelectContent>
                             <SelectItem value="fade">Fade In</SelectItem>
@@ -535,44 +660,16 @@ const HeroAdmin: React.FC = () => {
                         </Select>
                       </div>
                     </div>
-                  </div>
-                  
-                  <div className="mt-6 border-t pt-4">
-                    <h4 className="font-medium mb-3">Preview</h4>
-                    <div className="aspect-video max-w-2xl rounded-lg overflow-hidden border bg-gray-100">
-                      {slides[currentSlideIndex].type === 'image' && (
-                        <img
-                          src={slides[currentSlideIndex].source}
-                          alt="Preview"
-                          className="w-full h-full object-cover"
-                        />
-                      )}
-                      {slides[currentSlideIndex].type === 'video' && (
-                        <video
-                          src={slides[currentSlideIndex].source}
-                          controls
-                          className="w-full h-full object-cover"
-                        />
-                      )}
-                      {slides[currentSlideIndex].type === 'youtube' && (
-                        <iframe
-                          src={slides[currentSlideIndex].source}
-                          className="w-full h-full"
-                          allowFullScreen
-                        />
-                      )}
-                      {slides[currentSlideIndex].type === 'html' && (
-                        <div 
-                          className="w-full h-full bg-white p-4 overflow-auto"
-                          dangerouslySetInnerHTML={{ __html: slides[currentSlideIndex].source }}
-                        />
-                      )}
+                  </CardContent>
+                  <CardFooter>
+                    <div className="flex justify-end w-full">
+                      <Button onClick={handleSaveAll}>Save Settings</Button>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
+                  </CardFooter>
+                </Card>
+              </TabsContent>
+            </Tabs>
+
             <div className="flex justify-end">
               <Button onClick={handleSaveAll} size="lg" className="gap-2">
                 Save All Changes
