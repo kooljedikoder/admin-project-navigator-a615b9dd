@@ -30,7 +30,6 @@ import { MediaLibraryProvider, useMediaLibrary } from '@/contexts/MediaLibraryCo
 import LogoScrollerAdmin from '@/components/admin/LogoScrollerAdmin';
 import PopupBuilderAdmin from '@/components/admin/PopupBuilderAdmin';
 import FeedbackFormAdmin from '@/components/admin/FeedbackFormAdmin';
-import TestimonialsAdmin from '@/components/admin/TestimonialsAdmin';
 
 const MediaSelector = ({ 
   onSelect, 
@@ -161,6 +160,7 @@ const HeroAdmin: React.FC = () => {
   const [sliderSettings, setSliderSettings] = useState({
     autoplaySpeed: 5000,
     defaultAnimation: 'fade' as const,
+    overlayOpacity: 50, // New setting for opacity
   });
 
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -246,6 +246,8 @@ const HeroAdmin: React.FC = () => {
     setCurrentSlide(slide);
   };
 
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+
   return (
     <AdminLayout title="Homepage Content Management">
       <MediaLibraryProvider>
@@ -280,43 +282,62 @@ const HeroAdmin: React.FC = () => {
           <TabsContent value="hero" className="space-y-6">
             <div className="flex justify-between items-center">
               <h2 className="text-2xl font-bold">Manage Hero Slides</h2>
-              <Button onClick={handleAddSlide} className="gap-2">
-                <PlusCircle size={16} />
-                Add New Slide
-              </Button>
-            </div>
-            
-            {currentSlide && (
-              <div className="mb-6 border rounded-lg overflow-hidden">
-                <div className="aspect-[21/9] max-h-[400px] relative">
-                  {currentSlide.type === 'image' && (
-                    <img
-                      src={currentSlide.source}
-                      alt={currentSlide.title}
-                      className="w-full h-full object-cover"
-                    />
-                  )}
-                  {currentSlide.type === 'video' && (
-                    <video
-                      src={currentSlide.source}
-                      className="w-full h-full object-cover"
-                      autoPlay
-                      muted
-                      loop
-                    />
-                  )}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"></div>
-                  <div className="absolute bottom-0 left-0 p-6 text-white max-w-3xl">
-                    <h3 className="text-sm font-semibold tracking-wider mb-2">{currentSlide.subtitle}</h3>
-                    <h2 className="text-3xl md:text-4xl font-bold mb-3">{currentSlide.title}</h2>
-                    <p className="text-white/80 mb-4 text-lg">{currentSlide.description}</p>
-                    <Button className="bg-white text-blue-900 hover:bg-blue-50">{currentSlide.ctaText}</Button>
-                  </div>
-                </div>
+              <div className="flex gap-2">
+                <Button onClick={handleAddSlide} className="gap-2">
+                  <PlusCircle size={16} />
+                  Add New Slide
+                </Button>
+                <Button variant="outline" onClick={() => setIsSettingsOpen(true)}>
+                  <Settings size={16} className="mr-2" />
+                  Slider Settings
+                </Button>
               </div>
-            )}
+            </div>
+
+            {/* Preview Section */}
+            <Card>
+              <CardHeader>
+                <CardTitle>Preview</CardTitle>
+                <CardDescription>Live preview of the current slide</CardDescription>
+              </CardHeader>
+              <CardContent>
+                {currentSlide && (
+                  <div className="relative rounded-lg overflow-hidden">
+                    <div className="aspect-[21/9] max-h-[400px] relative">
+                      {currentSlide.type === 'image' && (
+                        <img
+                          src={currentSlide.source}
+                          alt={currentSlide.title}
+                          className="w-full h-full object-cover"
+                        />
+                      )}
+                      {currentSlide.type === 'video' && (
+                        <video
+                          src={currentSlide.source}
+                          className="w-full h-full object-cover"
+                          autoPlay
+                          muted
+                          loop
+                        />
+                      )}
+                      <div 
+                        className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30"
+                        style={{ opacity: sliderSettings.overlayOpacity / 100 }}
+                      ></div>
+                      <div className="absolute bottom-0 left-0 p-6 text-white max-w-3xl">
+                        <h3 className="text-sm font-semibold tracking-wider mb-2">{currentSlide.subtitle}</h3>
+                        <h2 className="text-3xl md:text-4xl font-bold mb-3">{currentSlide.title}</h2>
+                        <p className="text-white/80 mb-4 text-lg">{currentSlide.description}</p>
+                        <Button className="bg-white text-blue-900 hover:bg-blue-50">{currentSlide.ctaText}</Button>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              </CardContent>
+            </Card>
             
             <div className="grid grid-cols-12 gap-6">
+              {/* Slide List */}
               <div className="col-span-12 md:col-span-3 space-y-4">
                 <div className="bg-gray-50 p-4 rounded-lg">
                   <h3 className="font-medium mb-3">Slides</h3>
@@ -349,6 +370,7 @@ const HeroAdmin: React.FC = () => {
                 </div>
               </div>
               
+              {/* Edit Section */}
               <div className="col-span-12 md:col-span-9">
                 <div className="bg-white rounded-lg border p-6">
                   <div className="flex justify-between mb-4">
