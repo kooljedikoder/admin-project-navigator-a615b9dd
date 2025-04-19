@@ -21,7 +21,8 @@ import {
   LayoutDashboard,
   MessageSquare,
   ThumbsUp,
-  Globe
+  Globe,
+  Settings
 } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
@@ -30,6 +31,7 @@ import { MediaLibraryProvider, useMediaLibrary } from '@/contexts/MediaLibraryCo
 import LogoScrollerAdmin from '@/components/admin/LogoScrollerAdmin';
 import PopupBuilderAdmin from '@/components/admin/PopupBuilderAdmin';
 import FeedbackFormAdmin from '@/components/admin/FeedbackFormAdmin';
+import TestimonialsAdmin from '@/components/admin/TestimonialsAdmin';
 
 const MediaSelector = ({ 
   onSelect, 
